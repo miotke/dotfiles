@@ -1,3 +1,6 @@
+" VIM RC file
+
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
