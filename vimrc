@@ -28,6 +28,7 @@ set autoindent
 syntax on
 syntax enable
 filetype indent on
+set backspace=indent,eol,start
 
 "Startup when Vim starts
 autocmd vimenter * NERDTree
