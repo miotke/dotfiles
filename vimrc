@@ -10,9 +10,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -20,21 +17,5 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-set encoding=utf-8
 set number
-set tabstop=4
-set shiftwidth=4
-set autoindent
-filetype indent on
 syntax on
-syntax enable
-let python_highlight_all=1
-
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
