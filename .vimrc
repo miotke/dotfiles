@@ -1,5 +1,3 @@
-" VIM RC file
-
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -15,11 +13,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
-Bundle 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 
 set encoding=utf-8
 set number
