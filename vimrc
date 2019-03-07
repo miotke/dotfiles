@@ -14,7 +14,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plugin 'kmszk/skyhawk'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,6 +31,9 @@ syntax on
 syntax enable
 filetype indent on
 set backspace=indent,eol,start
+
+"Colors
+colorscheme skyhawk
 
 "Startup when Vim starts
 autocmd vimenter * NERDTree
