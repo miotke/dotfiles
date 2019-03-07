@@ -8,8 +8,8 @@ Repo to hold dotfiles
 * NERDtree
 * Tabular
 * vim-markdown
-*
-* ### Install Instructions
+
+### Install Instructions
 * Install zsh
 
 	`sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
