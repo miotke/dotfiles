@@ -8,3 +8,16 @@ Repo to hold dotfiles
 * NERDtree
 * Tabular
 * vim-markdown
+*
+* ### Install Instructions
+* Install zsh
+	`sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+
+* Install vim
+	`brew install vim`
+
+* Install Vundle
+	`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+
+* Clone repo
+	`git@github.com:miotke/dotfiles.git ~/dotfiles`
