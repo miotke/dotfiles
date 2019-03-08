@@ -15,8 +15,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
-Plugin 'kmszk/skyhawk'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'phanviet/vim-monokai-pro'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -35,7 +35,8 @@ filetype indent on
 set backspace=indent,eol,start
 
 "Colors
-colorscheme skyhawk
+set termguicolors
+colorscheme monokai_pro
 
 "Startup when Vim starts
 autocmd vimenter * NERDTree
