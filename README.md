@@ -13,6 +13,10 @@ Repo to hold dotfiles
 * Install zsh
 
 	`sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+	
+* Install oh-my-zsh
+
+	`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
 * Install vim
 
@@ -24,4 +28,4 @@ Repo to hold dotfiles
 
 * Clone repo
 
-	`git@github.com:miotke/dotfiles.git ~/dotfiles`
+	`https://github.com/miotke/dotfiles.git ~/dotfiles`
