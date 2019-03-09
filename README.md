@@ -5,9 +5,13 @@
 Repo to hold dotfiles 
 
 ### Vundle Plugins
-* NERDtree
-* Tabular
-* vim-markdown
+Copy these directly into your `.vimrc` file to install with Vundle
+* Plugin 'VundleVim/Vundle.vim'
+* Plugin 'scrooloose/nerdtree'
+* Plugin 'scrooloose/nerdcommenter'
+* Plugin 'godlygeek/tabular'
+* Plugin 'davidhalter/jedi-vim'
+* Plugin 'phanviet/vim-monokai-pro'
 
 ### Install Instructions
 * Install zsh
