@@ -1,18 +1,18 @@
-        ________ ++     ________
-       /VVVVVVVV\++++  /VVVVVVVV\
-       \VVVVVVVV/++++++\VVVVVVVV/
-        |VVVVVV|++++++++/VVVVV/'
-        |VVVVVV|++++++/VVVVV/'
-       +|VVVVVV|++++/VVVVV/'+
-     +++|VVVVVV|++/VVVVV/'+++++
-   +++++|VVVVVV|/VVVVV/'+++++++++
-     +++|VVVVVVVVVVV/'+++++++++
-       +|VVVVVVVVV/'+++++++++
-        |VVVVVVV/'+++++++++
-        |VVVVV/'+++++++++
-        |VVV/'+++++++++
-        'V/'   ++++++
-                 ++
+"        ________ ++     ________
+"       /VVVVVVVV\++++  /VVVVVVVV\
+"       \VVVVVVVV/++++++\VVVVVVVV/
+"        |VVVVVV|++++++++/VVVVV/'
+"        |VVVVVV|++++++/VVVVV/'
+"       +|VVVVVV|++++/VVVVV/'+
+"     +++|VVVVVV|++/VVVVV/'+++++
+"   +++++|VVVVVV|/VVVVV/'+++++++++
+"     +++|VVVVVVVVVVV/'+++++++++
+"       +|VVVVVVVVV/'+++++++++
+"        |VVVVVVV/'+++++++++
+"        |VVVVV/'+++++++++
+"        |VVV/'+++++++++
+"        'V/'   ++++++
+"                 ++
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
