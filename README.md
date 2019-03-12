@@ -12,6 +12,8 @@ Copy these directly into your `.vimrc` file to install with Vundle
 * Plugin 'godlygeek/tabular'
 * Plugin 'davidhalter/jedi-vim'
 * Plugin 'phanviet/vim-monokai-pro'
+* Plugin 'airblade/vim-gitgutter'
+* Plugin 'bling/vim-airline'
 
 ### Install Instructions
 * Install zsh
