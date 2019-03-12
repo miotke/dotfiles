@@ -35,3 +35,7 @@ Copy these directly into your `.vimrc` file to install with Vundle
 * Clone repo
 
 	`https://github.com/miotke/dotfiles.git ~/dotfiles`
+
+* Run `makesymlinks.sh`
+
+	`cd ~/dotfiles; ./makesymlinks.sh`
