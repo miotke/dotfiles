@@ -31,6 +31,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'phanviet/vim-monokai-pro'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
+Plugin 'maralla/completor.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -48,6 +49,8 @@ syntax on
 syntax enable
 filetype indent on
 set backspace=indent,eol,start
+set cursorline
+hi clear cursorline
 
 "Colors
 set termguicolors
