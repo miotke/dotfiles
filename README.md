@@ -19,6 +19,10 @@ Copy these directly into your `.vimrc` file to install with Vundle
 * Install zsh
 
 	`sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+	
+* Install oh-my-zsh
+
+	`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
 * Install vim
 
