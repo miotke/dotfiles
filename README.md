@@ -1,8 +1,6 @@
 # dotfiles
 
-🔥 This is still being tested and I need to test this on a different machine. 🔥
-
-Repo to hold dotfiles 
+💻 This repo holds my dotfiles. Mostly for macOS. 💻
 
 ### Vundle Plugins
 Copy these directly into your `.vimrc` file to install with Vundle
@@ -10,10 +8,10 @@ Copy these directly into your `.vimrc` file to install with Vundle
 * Plugin 'scrooloose/nerdtree'
 * Plugin 'scrooloose/nerdcommenter'
 * Plugin 'godlygeek/tabular'
-* Plugin 'davidhalter/jedi-vim'
 * Plugin 'phanviet/vim-monokai-pro'
 * Plugin 'airblade/vim-gitgutter'
 * Plugin 'bling/vim-airline'
+* Plugin 'maralla/completor.vim'
 
 ### Install Instructions
 * Install zsh
