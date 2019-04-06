@@ -13,6 +13,11 @@
 "        |VVV/'+++++++++
 "        'V/'   ++++++
 "                 ++
+" This vimrc file was written from scratch by me. 
+" In no way is this a full featured vimrc, there are a lot of improvements
+" that are needed.
+" Feel free to open a pull request or create an issue if you have suggestions.
+
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
