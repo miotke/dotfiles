@@ -37,3 +37,14 @@ Copy these directly into your `.vimrc` file to install with Vundle
 * Run `makesymlinks.sh`
 
 	`cd ~/dotfiles; ./makesymlinks.sh`
+
+### Other Files
+This repo also contains other configuration files and preferences
+* Sublime Text
+	
+	`cp ~/dotfiles/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/`
+
+* iTerm2 Settings
+	
+	* Ensure the following checkbox is checked: _Load preferences from a custom folder or URL:_
+	* Point to the `~/dotfiles/iterm2-settings` folder 
