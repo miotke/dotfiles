@@ -42,7 +42,10 @@ Copy these directly into your `.vimrc` file to install with Vundle
 This repo also contains other configuration files and preferences
 * Sublime Text
 	
-	`cp ~/dotfiles/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/`
+	`cp ~/dotfiles/sublime_text/Preferences.sublime-settings ~/dotfiles/sublime_text/`
+
+* VS Code
+	`cp ~/vs_code/settings.json ~/Library/Application Support/Code/User/`
 
 * iTerm2 Settings
 	

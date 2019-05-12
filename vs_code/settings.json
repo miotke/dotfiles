@@ -1,0 +1,6 @@
+{
+    "editor.fontSize": 13,
+    "workbench.colorTheme": "Monokai",
+    "editor.renderIndentGuides": true,
+    "editor.renderWhitespace": "boundary"
+}
