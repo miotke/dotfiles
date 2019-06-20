@@ -3,7 +3,7 @@
 💻 This repo holds my dotfiles and other preference files. Mostly for macOS. 💻
 
 ### Screenshot
-
+![vim+python](https://raw.githubusercontent.com/miotke/dotfiles/master/screenshots/vim%2Bpython.png)
 
 
 ### Vundle Plugins
