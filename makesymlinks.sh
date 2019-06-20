@@ -9,7 +9,11 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bashrc vimrc vim zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
-
+vs_code="settings.json"
+sublime_text=~dotfiles/sublime_text/
+test_text="test"
+test_dest=~/Desktop/
+vs_code_destination=~/Library/Application\ Support/Code/User
 ##########
 
 # create dotfiles_old in homedir
@@ -29,3 +33,6 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+# Create symlinks for VS Code and Sublime Text
+ln -s $vs_code ~/Library/Application\ Support/Code/User
