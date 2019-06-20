@@ -2,6 +2,10 @@
 
 💻 This repo holds my dotfiles and other preference files. Mostly for macOS. 💻
 
+### Screenshot
+
+
+
 ### Vundle Plugins
 Copy these directly into your `.vimrc` file to install with Vundle
 * Plugin 'VundleVim/Vundle.vim'
