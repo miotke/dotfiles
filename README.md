@@ -46,7 +46,7 @@ This repo also contains other configuration files and preferences
 
 * VS Code
 
-	`cp ~/vs_code/settings.json ~/Library/Application Support/Code/User/`
+	`cp ~/dotfiles/vs_code/settings.json ~/Library/Application Support/Code/User/`
 
 * iTerm2 Settings
 	
