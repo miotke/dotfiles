@@ -42,15 +42,12 @@ Copy these directly into your `.vimrc` file to install with Vundle
 
 	`cd ~/dotfiles; ./makesymlinks.sh`
 
+* Run `copy_config_files.py`
+
+	`python3 copy_config_files.py`
+
 ### Other Files
 This repo also contains other configuration files and preferences
-* Sublime Text
-	
-	`cp ~/dotfiles/sublime_text/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings`
-
-* VS Code
-
-	`cp ~/dotfiles/vs_code/settings.json ~/Library/Application Support/Code/User/`
 
 * iTerm2 Settings
 	

@@ -24,6 +24,7 @@ def copy_vim_colors():
 
 def copy_files():
     move_vs_code()
+    copy_vim_colors()
 
 
 if __name__ == "__main__":
