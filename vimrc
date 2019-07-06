@@ -59,7 +59,7 @@ hi clear cursorline
 
 "Colors
 set termguicolors
-colorscheme spacecamp
+colorscheme monokai
 
 "Startup when Vim starts
 autocmd vimenter * NERDTree

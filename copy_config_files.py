@@ -16,6 +16,12 @@ def  move_vs_code():
     return os.system(f"cp {source_file} {destination}")
 
 
+def copy_vim_colors():
+    source_file = "~/dotfiles/colors"
+    destination = "~/.vim/"
+    return os.system(f"cp {source_file} {destination}")
+
+
 def copy_files():
     move_vs_code()
 
