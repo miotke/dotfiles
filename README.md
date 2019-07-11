@@ -61,5 +61,5 @@ This repo also contains other configuration files and preferences
 |           | uncomment a line with NERDCommenter |
 |`0`        | jump to front of the line           |
 |`4`        | jump to the end of the line         |
-
+|`zz`       | focus selected line to the center   |
 

@@ -66,3 +66,6 @@ autocmd vimenter * NERDTree
 
 "NERDtree config
 map <C-n> :NERDTreeToggle<CR>
+
+" Remove trailing white space on save
+autocmd BufWritePre * %s/\s\+$//e
