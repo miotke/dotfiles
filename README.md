@@ -50,3 +50,14 @@ This repo also contains other configuration files and preferences
 	
 	* Ensure the following checkbox is checked: _Load preferences from a custom folder or URL:_
 	* Point to the `~/dotfiles/iterm2-settings` folder 
+
+
+### Shortcuts
+| Command   |          Action             |
+|-----------|-----------------------------|
+|`ctrl-n`   | open\close NERDTree         |
+|`ctrl-ww`  | focus\unfocus NERDTree      |
+|`0`        | jump to front of the line   |
+|`4`        | jump to the end of the line |
+
+

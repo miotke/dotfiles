@@ -56,6 +56,7 @@ filetype indent on
 set backspace=indent,eol,start
 set cursorline
 hi clear cursorline
+map <C-n> :NERDTreeToggle<CR>
 
 "Colors
 set termguicolors
