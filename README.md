@@ -53,13 +53,15 @@ This repo also contains other configuration files and preferences
 
 
 ### Shortcuts
-| Command   |          Action                     |
-|-----------|-------------------------------------|
-|`ctrl-n`   | open\close NERDTree                 |
-|`ctrl-ww`  | focus\unfocus NERDTree              |
-|`\cc`      | comment a line with NERDCommenter   |
-|           | uncomment a line with NERDCommenter |
-|`0`        | jump to front of the line           |
-|`4`        | jump to the end of the line         |
-|`zz`       | focus selected line to the center   |
+| Command   |          Action                                  |
+|-----------|--------------------------------------------------|
+|`ctrl-n`   | open\close NERDTree                              |
+|`ctrl-ww`  | focus\unfocus NERDTree or another split file     |
+|`s`        | open a verticle split with another selected file |
+|`i`        | open horizontal split with another selected file |
+|`\cc`      | comment a line with NERDCommenter                |
+|`\cu`      | uncomment a line with NERDCommenter              |
+|`0`        | jump to front of the line                        |
+|`4`        | jump to the end of the line                      |
+|`zz`       | focus selected line to the center                |
 
