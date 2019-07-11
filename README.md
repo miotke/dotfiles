@@ -18,7 +18,7 @@ Copy these directly into your `.vimrc` file to install with Vundle
 * Install zsh
 
 	`sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-	
+
 * Install oh-my-zsh
 
 	`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
@@ -47,17 +47,19 @@ Copy these directly into your `.vimrc` file to install with Vundle
 This repo also contains other configuration files and preferences
 
 * iTerm2 Settings
-	
+
 	* Ensure the following checkbox is checked: _Load preferences from a custom folder or URL:_
-	* Point to the `~/dotfiles/iterm2-settings` folder 
+	* Point to the `~/dotfiles/iterm2-settings` folder
 
 
 ### Shortcuts
-| Command   |          Action             |
-|-----------|-----------------------------|
-|`ctrl-n`   | open\close NERDTree         |
-|`ctrl-ww`  | focus\unfocus NERDTree      |
-|`0`        | jump to front of the line   |
-|`4`        | jump to the end of the line |
+| Command   |          Action                     |
+|-----------|-------------------------------------|
+|`ctrl-n`   | open\close NERDTree                 |
+|`ctrl-ww`  | focus\unfocus NERDTree              |
+|`\cc`      | comment a line with NERDCommenter   |
+|           | uncomment a line with NERDCommenter |
+|`0`        | jump to front of the line           |
+|`4`        | jump to the end of the line         |
 
 
