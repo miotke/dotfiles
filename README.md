@@ -64,4 +64,4 @@ This repo also contains other configuration files and preferences
 |`0`        | jump to front of the line                        |
 |`4`        | jump to the end of the line                      |
 |`zz`       | focus selected line to the center                |
-
+|`ctrl-r`   | Re-do changes                                    |
