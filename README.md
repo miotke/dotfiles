@@ -67,4 +67,4 @@ This repo also contains other configuration files and preferences
 |`y`        | copy selected text                               |
 |`p`        | paste copied text                                |
 |`d`        | cut selected text                                |
-
+|`ctrl-r`   | Re-do changes                                    |
