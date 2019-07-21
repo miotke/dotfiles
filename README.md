@@ -51,7 +51,9 @@ This repo also contains other configuration files and preferences
 	* Ensure the following checkbox is checked: _Load preferences from a custom folder or URL:_
 	* Point to the `~/dotfiles/iterm2-settings` folder
 
-
+* VSCode Settings
+	* Put settings.json in the `~/Library/Application Support/Code/User/` folder
+	
 ### Shortcuts
 | Command   |          Action                                  |
 |-----------|--------------------------------------------------|
