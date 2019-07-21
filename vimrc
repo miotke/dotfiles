@@ -13,7 +13,7 @@
 "        |VVV/'+++++++++
 "        'V/'   ++++++
 "                 ++
-" This vimrc file was written from scratch by me. 
+" This vimrc file was written from scratch by me.
 " In no way is this a full featured vimrc, there are a lot of improvements
 " that are needed.
 " Feel free to open a pull request or create an issue if you have suggestions.
@@ -33,7 +33,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
-Plugin 'phanviet/vim-monokai-pro'
+Plugin 'morhetz/gruvbox'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'maralla/completor.vim'
@@ -48,7 +48,7 @@ set encoding=utf-8
 set number
 " set relativenumber
 set tabstop=4
-set shiftwidth=4 
+set shiftwidth=4
 set autoindent
 syntax on
 syntax enable
@@ -59,7 +59,7 @@ hi clear cursorline
 
 "Colors
 set termguicolors
-colorscheme monokai
+colorscheme gruvbox
 
 "Startup when Vim starts
 autocmd vimenter * NERDTree

@@ -64,4 +64,7 @@ This repo also contains other configuration files and preferences
 |`0`        | jump to front of the line                        |
 |`4`        | jump to the end of the line                      |
 |`zz`       | focus selected line to the center                |
+|`y`        | copy selected text                               |
+|`p`        | paste copied text                                |
+|`d`        | cut selected text                                |
 
