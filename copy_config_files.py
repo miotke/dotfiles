@@ -27,6 +27,11 @@ def copy_files():
     copy_vim_colors()
 
 
-if __name__ == "__main__":
+def setup()
     copy_files()
+    os.system('./makesymlinks.sh')
+
+
+if __name__ == "__main__":
+    setup()
 
