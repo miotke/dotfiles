@@ -27,7 +27,7 @@ def copy_files():
     copy_vim_colors()
 
 
-def setup()
+def setup():
     copy_files()
     os.system('./makesymlinks.sh')
 
