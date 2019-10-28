@@ -1,7 +1,8 @@
 # dotfiles
 
-💻 This repo holds my dotfiles and other preference files. Mostly for macOS. 💻
+🙅‍♂️ This is now a private repo 🙅‍♂️
 
+💻 This repo holds my dotfiles and other preference files. Mostly for macOS. 💻
 
 ### Vundle Plugins
 Copy these directly into your `.vimrc` file to install with Vundle
