@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc vim zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
+files="bashrc vimrc vim zshrc oh-my-zsh zshenv"    # list of files/folders to symlink in homedir
 sublime_text=~/dotfiles/sublime_text/Preferences.sublime-settings
 sublime_text_destination=~/~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 
@@ -24,7 +24,7 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
