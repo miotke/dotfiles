@@ -20,3 +20,12 @@ export APP_CLIENT_ID='5sep24l2se1msrbn6ovm3svj05'
 # andrewmiotkedotcom Django Secret Key
 export ANDREWMIOTKEDOTCOM_SECRET_KEY='kod$f#b$sny!^si_9h4w)(*ek%48kbhqed^%=j-^x=g64u%xfk'
 
+# ----------------------------------------------------------------------------------------------------
+# Blog key and secret for the Google OAuth set up for the Django blog
+# we are building in our Python230 class.
+# Once that class is complete, these can be removed
+# Python230 blog key
+export PYTHON230_KEY="1095204197604-phe7rokk1cce4ojkk16ba34920ihinrm.apps.googleusercontent.com"
+# Python230 blog secret
+export PYTHON230_SECRET="qDJonbZYcavxuGTmfc50wNIY"
+# ----------------------------------------------------------------------------------------------------
