@@ -1,6 +1,6 @@
 {
 	"auto_indent": true,
-	"draw_white_space": "all",
+	// "draw_white_space": "all",
 	"font_size": 13,
 	"ignored_packages":
 	[
