@@ -96,6 +96,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias python='python3'
+alias pip='pip3'
 
 # Virtualenvwrapper things
 export WORKON_HOME=$HOME/.virtualenvs
