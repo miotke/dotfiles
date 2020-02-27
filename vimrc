@@ -28,6 +28,11 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+" Plug plugin manager
+call plug#begin('~/.vim/plugged')
+Plug 'arzg/vim-colors-xcode'
+call plug#end()
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
@@ -59,7 +64,7 @@ hi clear cursorline
 
 "Colors
 set termguicolors
-colorscheme gruvbox
+colorscheme xcodedark
 
 "Startup when Vim starts
 autocmd vimenter * NERDTree
