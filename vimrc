@@ -1,18 +1,3 @@
-"        ________ ++     ________
-"       /VVVVVVVV\++++  /VVVVVVVV\
-"       \VVVVVVVV/++++++\VVVVVVVV/
-"        |VVVVVV|++++++++/VVVVV/'
-"        |VVVVVV|++++++/VVVVV/'
-"       +|VVVVVV|++++/VVVVV/'+
-"     +++|VVVVVV|++/VVVVV/'+++++
-"   +++++|VVVVVV|/VVVVV/'+++++++++
-"     +++|VVVVVVVVVVV/'+++++++++
-"       +|VVVVVVVVV/'+++++++++
-"        |VVVVVVV/'+++++++++
-"        |VVVVV/'+++++++++
-"        |VVV/'+++++++++
-"        'V/'   ++++++
-"                 ++
 " This vimrc file was written from scratch by me.
 " In no way is this a full featured vimrc, there are a lot of improvements
 " that are needed.
@@ -31,17 +16,11 @@ call vundle#begin()
 " Plug plugin manager
 call plug#begin('~/.vim/plugged')
 Plug 'arzg/vim-colors-xcode'
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
 call plug#end()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'godlygeek/tabular'
-Plugin 'morhetz/gruvbox'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
-Plugin 'maralla/completor.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,9 +44,6 @@ hi clear cursorline
 "Colors
 set termguicolors
 colorscheme xcodedark
-
-"Startup when Vim starts
-autocmd vimenter * NERDTree
 
 "NERDtree config
 map <C-n> :NERDTreeToggle<CR>
