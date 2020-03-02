@@ -4,17 +4,6 @@
 
 💻 This repo holds my dotfiles and other preference files. Mostly for macOS. 💻
 
-### Vundle Plugins
-Copy these directly into your `.vimrc` file to install with Vundle
-* Plugin 'VundleVim/Vundle.vim'
-* Plugin 'scrooloose/nerdtree'
-* Plugin 'scrooloose/nerdcommenter'
-* Plugin 'godlygeek/tabular'
-* Plugin 'phanviet/vim-monokai-pro'
-* Plugin 'airblade/vim-gitgutter'
-* Plugin 'bling/vim-airline'
-* Plugin 'maralla/completor.vim'
-
 ### Install Instructions
 * Install zsh
 
@@ -54,7 +43,7 @@ This repo also contains other configuration files and preferences
 
 * VSCode Settings
 	* Put settings.json in the `~/Library/Application Support/Code/User/` folder
-	
+
 ### Shortcuts
 | Command   |          Action                                  |
 |-----------|--------------------------------------------------|
