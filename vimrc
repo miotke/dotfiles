@@ -10,20 +10,12 @@ filetype off                  " required
 " Plug plugin manager
 call plug#begin('~/.vim/plugged')
 Plug 'arzg/vim-colors-xcode'
-<<<<<<< HEAD
 Plug 'preservim/nerdtree'
-=======
->>>>>>> d409b026a29a479f31e7176a5b7d7ff3129dd0ce
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 call plug#end()
 
-<<<<<<< HEAD
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-=======
->>>>>>> d409b026a29a479f31e7176a5b7d7ff3129dd0ce
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
