@@ -35,7 +35,7 @@ hi clear cursorline
 
 "Colors
 set termguicolors
-colorscheme xcodedark
+colorscheme xcodewwdc
 
 "NERDtree config
 map <C-n> :NERDTreeToggle<CR>
