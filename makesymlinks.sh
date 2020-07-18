@@ -9,10 +9,6 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bashrc vimrc vim zshrc oh-my-zsh zshenv"    # list of files/folders to symlink in homedir
-sublime_text=~/dotfiles/sublime_text/Preferences.sublime-settings
-sublime_text_destination=~/~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
-
-##########
 
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
@@ -32,5 +28,3 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-# Create symlinks for Sublime Text
-ln -s $sublime_text ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
