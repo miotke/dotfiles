@@ -5,21 +5,14 @@
 💻 This repo holds my dotfiles and other preference files. Mostly for macOS. 💻
 
 ### Install Instructions
-* Install zsh
-
-	`sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
 * Install oh-my-zsh
 
-	`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+	`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 * Install vim
 
 	`brew install vim`
-
-* Install Vundle
-
-	`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
 * Clone repo
 
@@ -29,10 +22,6 @@
 
 	`cd ~/dotfiles; ./makesymlinks.sh`
 
-* Run `copy_config_files.py`
-
-	`python3 copy_config_files.py`
-
 ### Other Files
 This repo also contains other configuration files and preferences
 
@@ -40,9 +29,6 @@ This repo also contains other configuration files and preferences
 
 	* Ensure the following checkbox is checked: _Load preferences from a custom folder or URL:_
 	* Point to the `~/dotfiles/iterm2-settings` folder
-
-* VSCode Settings
-	* Put settings.json in the `~/Library/Application Support/Code/User/` folder
 
 ### Shortcuts
 | Command   |          Action                                  |
