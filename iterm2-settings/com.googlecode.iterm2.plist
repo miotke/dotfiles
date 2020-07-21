@@ -70,7 +70,7 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>320 331 799 448 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 340 1102 537 0 0 1440 877 </string>
+	<string>0 285 1123 592 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>176 37 1130 537 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -652,7 +652,7 @@
 					<key>algorithm</key>
 					<integer>0</integer>
 					<key>auto-rainbow style</key>
-					<integer>0</integer>
+					<integer>3</integer>
 					<key>font</key>
 					<string>.AppleSystemUIFont 12</string>
 				</dict>
@@ -688,7 +688,7 @@
 								<key>algorithm</key>
 								<integer>0</integer>
 								<key>auto-rainbow style</key>
-								<integer>0</integer>
+								<integer>3</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
 							</dict>
@@ -710,11 +710,47 @@
 									<key>Alpha Component</key>
 									<real>1</real>
 									<key>Blue Component</key>
-									<real>0.4325</real>
+									<real>0.25</real>
 									<key>Color Space</key>
 									<string>sRGB</string>
 									<key>Green Component</key>
 									<real>0.5</real>
+									<key>Red Component</key>
+									<real>0.29499999999999998</real>
+								</dict>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>3</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarNetworkUtilizationComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>shared text color</key>
+								<dict>
+									<key>Alpha Component</key>
+									<real>1</real>
+									<key>Blue Component</key>
+									<real>0.5</real>
+									<key>Color Space</key>
+									<string>sRGB</string>
+									<key>Green Component</key>
+									<real>0.33999999999999997</real>
 									<key>Red Component</key>
 									<real>0.25</real>
 								</dict>
@@ -724,7 +760,7 @@
 								<key>algorithm</key>
 								<integer>0</integer>
 								<key>auto-rainbow style</key>
-								<integer>0</integer>
+								<integer>3</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
 							</dict>
@@ -766,7 +802,7 @@
 								<key>algorithm</key>
 								<integer>0</integer>
 								<key>auto-rainbow style</key>
-								<integer>0</integer>
+								<integer>3</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
 							</dict>
@@ -809,7 +845,7 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1440, 900}}</string>
+		<string>{{0, 0}, {3440, 1440}}</string>
 		<key>topLeft</key>
 		<string>{387, 814}</string>
 	</dict>
@@ -1598,5 +1634,9 @@
 	<false/>
 	<key>iTerm Version</key>
 	<string>3.3.12</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>
