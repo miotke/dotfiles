@@ -6,7 +6,13 @@
 
 ### Install Instructions
 
-* Run `./bootstrap.py`
+Run `./bootstrap.py`
+
+Running bootstrap.py does the following the things:
+* Installs [Homebrew](https://brew.sh) as a macOS package manager
+* Installs [oh-my-zsh](https://ohmyz.sh) for zsh configuration management
+* Installs Vim from Homebrew
+* Clones down this [dotfile](https://github.com/miotke/dotfiles) repo from GitHub
 
 ### Old Install Instructions(depricated)
 
