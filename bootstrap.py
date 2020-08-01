@@ -17,5 +17,10 @@ def install_from_homebrew():
     os.system(vim)
     os.system(clone_dotfiles)
 
+def create_directories():
+	os.system('mkdir ~/GitHub')
+
 if __name__ == "__main__":
     install_from_homebrew()
+	create_directories()
+
