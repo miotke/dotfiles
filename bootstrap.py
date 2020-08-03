@@ -6,21 +6,27 @@
 import os
 
 # Installs Homebrew and various applications
-homebrew = '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"'
-oh-my-zsh = 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-vim = 'brew install vim'
-clone_dotfiles = 'https://github.com/miotke/dotfiles.git ~/dotfiles'
+command_line_installs = [
+    # Install Homebrew
+    "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\"",
+    # Install oh-my-zsh
+    'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
+    # Install vim
+    'brew install vim',
+    # Clone dotfiles repo
+    'https://github.com/miotke/dotfiles.git ~/dotfiles'
+]
+
 
 def install_from_homebrew():
-    os.system(homebrew)
-    os.system(oh-my-zsh)
-    os.system(vim)
-    os.system(clone_dotfiles)
+    for commands in command_line_installs:
+        os.system(commands)
+
 
 def create_directories():
-	os.system('mkdir ~/GitHub')
+	os.system('mkdir ~/Desktop/stuff')
+
 
 if __name__ == "__main__":
     install_from_homebrew()
 	create_directories()
-
