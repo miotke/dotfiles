@@ -1,14 +1,12 @@
 # dotfiles
 
-🙅‍♂️ This is now a private repo 🙅‍♂️
-
-💻 This repo holds my dotfiles and other preference files. Mostly for macOS. 💻
+💻 This repo holds my dotfiles which are very minimal and a bootstrap script to setup a new Mac. 
 
 ### Install Instructions
 
 Run `./bootstrap.py`
 
-Running bootstrap.py does the following the things:
+Running `bootstrap.py` does the following the things:
 * Installs [Homebrew](https://brew.sh) as a macOS package manager
 * Installs [oh-my-zsh](https://ohmyz.sh) for zsh configuration management
 * Installs Vim from Homebrew
