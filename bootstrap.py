@@ -27,6 +27,14 @@ def create_directories():
 	os.system('mkdir ~/Desktop/stuff')
 
 
+def setup_commands():
+	show_xcode_build_times = 'defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES'
+
+	os.system(show_xcode_build_times)
+
+
 if __name__ == "__main__":
     install_from_homebrew()
 	create_directories()
+	setup_commands()
+
