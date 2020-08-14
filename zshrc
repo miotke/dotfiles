@@ -99,7 +99,5 @@ source $ZSH/oh-my-zsh.sh
 alias python='python3'
 alias pip='pip3'
 
-# Virtualenvwrapper things
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+# Removes all git branches except the master/main branch
+alias prune="git branch | grep -v "master" | xargs git branch -D"
