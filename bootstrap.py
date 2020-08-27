@@ -13,6 +13,8 @@ command_line_installs = [
     'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
     # Install vim
     'brew install vim',
+	# Install DB Browser for SQLite
+	'brew cask install db-browser-for-sqlite',
     # Clone dotfiles repo
     'https://github.com/miotke/dotfiles.git ~/dotfiles'
 ]
