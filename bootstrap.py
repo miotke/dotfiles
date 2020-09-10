@@ -15,6 +15,8 @@ command_line_installs = [
     'brew install vim',
     # Install DB Browser for SQLite
     'brew cask install db-browser-for-sqlite',
+    # Install tree
+    'brew install tree',
     # Clone dotfiles repo
     'https://github.com/miotke/dotfiles.git ~/dotfiles'
 ]
