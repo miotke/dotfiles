@@ -18,7 +18,9 @@ command_line_installs = [
     # Install tree
     'brew install tree',
     # Clone dotfiles repo
-    'https://github.com/miotke/dotfiles.git ~/dotfiles'
+    'https://github.com/miotke/dotfiles.git ~/dotfiles',
+	# Install the GitHub CLI tools
+	'brew install gh'
 ]
 
 
