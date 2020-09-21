@@ -12,7 +12,7 @@ Running `bootstrap.py` does the following the things:
 * Installs Vim from Homebrew
 * Clones down this [dotfile](https://github.com/miotke/dotfiles) repo from GitHub
 * Installs [DB Browser for SQLite](https://sqlitebrowser.org/)
-* Installs tree from home brew
+* Installs tree from Homebrew
 * Installs the [GitHub CLI](https://cli.github.com/)
 
 ### Old Install Instructions(depricated)
