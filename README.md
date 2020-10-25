@@ -15,25 +15,8 @@ Running `bootstrap.py` does the following the things:
 * Installs tree from Homebrew
 * Installs the [GitHub CLI](https://cli.github.com/)
 
-### Old Install Instructions(depricated)
-
-* Install oh-my-zsh
-
-	`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-
-* Install vim
-
-	`brew install vim`
-
-* Clone repo
-
-	`https://github.com/miotke/dotfiles.git ~/dotfiles`
-
-* Run `makesymlinks.sh`
-
-	`cd ~/dotfiles; ./makesymlinks.sh`
-
 ### Other Files
+
 This repo also contains other configuration files and preferences
 
 * iTerm2 Settings
@@ -42,6 +25,7 @@ This repo also contains other configuration files and preferences
 	* Point to the `~/dotfiles/iterm2-settings` folder
 
 ### Shortcuts
+
 | Command   |          Action                                  |
 |-----------|--------------------------------------------------|
 |`ctrl-n`   | open\close NERDTree                              |
