@@ -19,28 +19,41 @@ command_line_installs = [
     'brew install tree',
     # Clone dotfiles repo
     'https://github.com/miotke/dotfiles.git ~/dotfiles',
-	# Install the GitHub CLI tools
-	'brew install gh'
+    # Install the GitHub CLI tools
+    'brew install gh'
+    # Install vim-plug
+    'curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+                https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ]
 
 
+sym_link_files = ["vimrc", "zshrc"]
+
+
 def install_from_homebrew():
-    for commands in command_line_installs:
-        os.system(commands)
+    for command in command_line_installs:
+        os.system(command)
 
 
 def create_directories():
-	os.system('mkdir ~/Desktop/stuff')
+    os.system('mkdir ~/Desktop/stuff')
 
 
 def setup_commands():
-	show_xcode_build_times = 'defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES'
+    show_xcode_build_times = 'defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES'
 
-	os.system(show_xcode_build_times)
+    os.system(show_xcode_build_times)
+
+
+def create_sym_links(): 
+    # Creates sym links for vimrc, zshrc, ect.
+    for file in sym_link_files:
+        print("Creating sym links for {file}")
+        os.system(f'ln -s ~/dotfiles/{file} ~/.{file}')
 
 
 if __name__ == "__main__":
     install_from_homebrew()
-	create_directories()
-	setup_commands()
-
+    create_directories()
+    setup_commands()
+    create_sym_links()
