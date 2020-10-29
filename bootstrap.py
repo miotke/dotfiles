@@ -45,15 +45,15 @@ def setup_commands():
     os.system(show_xcode_build_times)
 
 
-def create_sym_links(): 
+#def create_sym_links(): 
     # Creates sym links for vimrc, zshrc, ect.
-    for file in sym_link_files:
-        print("Creating sym links for {file}")
-        os.system(f'ln -s ~/dotfiles/{file} ~/.{file}')
+#    for file in sym_link_files:
+#        print("Creating sym links for {file}")
+#        os.system(f"ln -s ~/dotfiles/{file} ~/.{file}")
 
 
 if __name__ == "__main__":
     install_from_homebrew()
     create_directories()
     setup_commands()
-    create_sym_links()
+    #create_sym_links()
