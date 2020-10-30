@@ -8,6 +8,9 @@ syntax on
 syntax enable
 filetype indent on 
 
+" NerdTree specific settings
+map <C-n> :NERDTreeToggle<CR>
+
 " vim-plug plugins 
 call plug#begin()
 
