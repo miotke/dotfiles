@@ -8,9 +8,7 @@ import os
 # Installs Homebrew and various applications
 command_line_installs = [
     # Install Homebrew
-    "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\"",
-    # Install oh-my-zsh
-    'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
+    '/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\"',
     # Install vim
     'brew install vim',
     # Install DB Browser for SQLite
@@ -23,11 +21,13 @@ command_line_installs = [
     'brew install gh'
     # Install vim-plug
     'curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-                https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+                https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim',
+    # Install oh-my-zsh
+    'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
 ]
 
 
-sym_link_files = ["vimrc", "zshrc"]
+sym_link_files = ['vimrc', 'zshrc']
 
 
 def install_from_homebrew():
@@ -45,15 +45,16 @@ def setup_commands():
     os.system(show_xcode_build_times)
 
 
-#def create_sym_links(): 
+def create_sym_links(): 
     # Creates sym links for vimrc, zshrc, ect.
-#    for file in sym_link_files:
-#        print("Creating sym links for {file}")
-#        os.system(f"ln -s ~/dotfiles/{file} ~/.{file}")
+    for file in sym_link_files:
+         print('Creating sym links for {file}')
+         os.system(f'ln -s ~/dotfiles/{file} ~/.{file}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     install_from_homebrew()
     create_directories()
     setup_commands()
-    #create_sym_links()
+    create_sym_links()
+
