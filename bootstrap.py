@@ -48,7 +48,7 @@ def install_from_homebrew():
 
 def create_directories():
     # Creats a directory for all Git repos that I work in.
-    os.system('mkdir ~/Git')
+    os.system('mkdir ~/Developer')
 
 
 def setup_commands():
