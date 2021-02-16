@@ -42,7 +42,7 @@ sym_link_files = ['vimrc', 'zshrc']
 
 def install_from_homebrew():
     for command in command_line_installs:
-        print(f'Installing {command}...')
+        print(f'Installing {command}')
         os.system(command)
 
 
@@ -61,7 +61,7 @@ def create_sym_links():
     # Creates sym links for vimrc, zshrc, ect.
     for file in sym_link_files:
         print(f'Creating sym links for {file}')
-        os.system(f'ln -s ~/dotfiles/{file} ~/.{file}')
+        os.system(f"ln -s ~/dotfiles/{file} ~/.{file}")
 
 
 if __name__ == '__main__':
