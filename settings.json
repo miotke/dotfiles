@@ -1,0 +1,12 @@
+{
+    "workbench.statusBar.visible": true,
+    "editor.fontSize": 13,
+    "window.zoomLevel": 0,
+    "editor.minimap.enabled": false,
+
+    "workbench.colorCustomizations": {
+        "statusBar.background" : "#1e1e1e",
+        "statusBar.noFolderBackground" : "#212121",
+        "statusBar.debuggingBackground": "#263238"
+    }
+}
