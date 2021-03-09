@@ -240,6 +240,8 @@
 			<string>3EA89F50-D7B2-4E1A-85E6-7324940B4546</string>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
+			<key>Icon</key>
+			<integer>0</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Jobs to Ignore</key>

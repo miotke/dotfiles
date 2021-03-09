@@ -8,5 +8,8 @@
         "statusBar.background" : "#1e1e1e",
         "statusBar.noFolderBackground" : "#212121",
         "statusBar.debuggingBackground": "#263238"
-    }
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "breadcrumbs.enabled": false,
+    "explorer.confirmDragAndDrop": false
 }
