@@ -64,6 +64,10 @@ def create_sym_links():
         os.system(f"ln -s ~/dotfiles/{file} ~/.{file}")
 
 
+def vs_code_settings(): 
+    os.system("ln -s ~/dotfiles/settings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/settings.json")
+
+
 if __name__ == '__main__':
     install_from_homebrew()
     create_directories()
