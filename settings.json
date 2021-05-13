@@ -1,15 +1,26 @@
 {
     "workbench.statusBar.visible": true,
     "editor.fontSize": 13,
-    "window.zoomLevel": 0,
     "editor.minimap.enabled": false,
+    "editor.showUnused": false,
 
     "workbench.colorCustomizations": {
         "statusBar.background" : "#1e1e1e",
         "statusBar.noFolderBackground" : "#212121",
         "statusBar.debuggingBackground": "#263238"
     },
-    "workbench.iconTheme": "vscode-icons",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.iconTheme": "vscode-icons-mac",
+    "python.showStartPage": false,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "workbench.startupEditor": "none",
     "breadcrumbs.enabled": false,
-    "explorer.confirmDragAndDrop": false
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
 }
