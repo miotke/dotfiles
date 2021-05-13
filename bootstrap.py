@@ -65,7 +65,9 @@ def create_sym_links():
 
 
 def vs_code_settings(): 
+    # Creates symlinks for VSCode preferences
     os.system("ln -s ~/dotfiles/settings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/settings.json")
+    os.system("ln -s ~/dotfiles/keybindings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/keybindings.json")
 
 
 if __name__ == '__main__':
