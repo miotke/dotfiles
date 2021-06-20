@@ -14,7 +14,7 @@ command_line_installs = [
     'brew install vim',
 
     # Install MonitorControl
-    'brew cask install monitorcontrol',
+    'brew install --cask monitorcontrol',
 
     # Install DB Browser for SQLite
     'brew cask install db-browser-for-sqlite',
