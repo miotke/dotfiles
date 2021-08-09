@@ -15,7 +15,7 @@ map <C-n> :NERDTreeToggle<CR>
 call plug#begin()
 
 " Color scheme
-Plug 'arzg/vim-colors-xcode'
+" Plug 'arzg/vim-colors-xcode'
 
 " Airline 
 Plug 'vim-airline/vim-airline'
@@ -32,4 +32,4 @@ endif
 
 call plug#end()
 
-colorscheme xcodedark
+" colorscheme xcodedark
