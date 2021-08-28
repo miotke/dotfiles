@@ -14,6 +14,9 @@ set autoindent          " Good auto indent
 set laststatus=0        " Always display the status line
 set number              " Line numbers
 
+" --- THEME ---
+colorscheme monokai
+
 " --- MAPS ---
 " NerdTree specific settings
 map <C-n> :NERDTreeToggle<CR>
