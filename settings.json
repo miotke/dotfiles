@@ -10,17 +10,18 @@
         "statusBar.debuggingBackground": "#263238"
     },
     "explorer.confirmDragAndDrop": false,
-    "workbench.iconTheme": "vscode-icons-mac",
+    "workbench.iconTheme": "vscode-great-icons",
     "python.showStartPage": false,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
     "workbench.startupEditor": "none",
     "breadcrumbs.enabled": false,
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
     }
 }
