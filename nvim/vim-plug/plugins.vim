@@ -8,9 +8,12 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-    Plug 'sheerun/vim-polyglot'       " Better Syntax Support
-    Plug 'jiangmiao/auto-pairs'       " Auto pairs for '(' '[' '{'
-    Plug 'vim-airline/vim-airline'    " Airline  
-    Plug 'scrooloose/NERDTree'        " File Explorer
+    Plug 'sheerun/vim-polyglot'                   " Better Syntax Support
+    Plug 'jiangmiao/auto-pairs'                   " Auto pairs for '(' '[' '{'
+    Plug 'vim-airline/vim-airline'                " Airline
+    Plug 'scrooloose/NERDTree'                    " File Explorer
+    Plug 'airblade/vim-gitgutter'                 " Shows git changes next to the line number
+    Plug 'lukas-reineke/indent-blankline.nvim'    " Shows indentation lines
+    Plug 'lewis6991/spellsitter.nvim'             " Spell checker
 
 call plug#end()
