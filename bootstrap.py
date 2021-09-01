@@ -1,7 +1,10 @@
-#!/usr/bin/env python
-
-# This is a small and novice script that helps bootstrap the setup
-# of a new Mac. Continue to add to it by creating other functions below.
+# The intention of this script is to set up and configure a new user environment.
+# Using Homebrew it will run through the INSTALL_PACKAGES list the generate symlinks
+# for any configuration file that are used. Symlinks include the zshrc file and my entire
+# Neovim configuration. Once everything is complete use the vim-plug command (:PlugInstall) to
+# install all Neovim plugins.
+#
+# WARNING: This script is intended to be used on a Mac. Tested on macOS 10.14+
 
 import os
 
@@ -25,9 +28,11 @@ INSTALL_PACKAGES = [
     "brew install neovim"
     # Install oh-my-zsh
     'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
+    # Install VS Code
+    'brew install --cask visual-studio-code'
 ]
 
-SYMLINK_FILES = ["vimrc", "zshrc"]
+SYMLINK_FILES = ["zshrc"]
 HOME = os.environ["HOME"]
 
 
@@ -55,7 +60,9 @@ def setup_commands():
 
 
 def create_symlinks():
-    # Creates symlinks for vimrc and zshrc
+    # Creates symlinks for for all files in the SYMLINK_FILES list.
+    # This is only a one item list since the vimrc file is no longer being used.
+    # If more individual files need symlinks, add them to the SYMLINK_FILES list.
     for file in SYMLINK_FILES:
         print(f"Creating sym links for {file}")
         os.system(f"ln -s {HOME}/dotfiles/{file} ~/.{file}")
