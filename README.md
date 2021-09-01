@@ -1,6 +1,6 @@
 # dotfiles
 
-💻 This repo holds my dotfiles which are very minimal and a bootstrap script to setup a new Mac. 
+💻 This repo holds my dotfiles which are very minimal and a bootstrap script to setup a new Mac.
 
 ### Install Instructions
 
@@ -14,6 +14,15 @@ Running `bootstrap.py` does the following the things:
 * Installs [DB Browser for SQLite](https://sqlitebrowser.org/)
 * Installs tree from Homebrew
 * Installs the [GitHub CLI](https://cli.github.com/)
+
+#### Neovim
+
+Run: `python setup_neovim.py`
+
+This creates an symlink from the nvim directory to `~/.config` that contains all neovim configuration files.
+Once the symlink is created open neovim and run `:PlugInstall` to install all plug-ins found in vim-plug/plugins.vim.
+
+Inside of the zshrc file is an alias for vim=nvim.
 
 ### Other Files
 
