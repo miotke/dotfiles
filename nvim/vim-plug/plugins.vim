@@ -8,9 +8,9 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-    Plug 'sheerun/vim-polyglot'     " Better Syntax Support
-    Plug 'jiangmiao/auto-pairs'     " Auto pairs for '(' '[' '{'
-    Plug 'vim-airline/vim-airline'  " Airline  
-    Plug 'scrooloose/NERDTree'      " File Explorer
+    Plug 'sheerun/vim-polyglot'       " Better Syntax Support
+    Plug 'jiangmiao/auto-pairs'       " Auto pairs for '(' '[' '{'
+    Plug 'vim-airline/vim-airline'    " Airline  
+    Plug 'scrooloose/NERDTree'        " File Explorer
 
 call plug#end()

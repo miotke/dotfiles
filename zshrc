@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 alias python='python3'
 alias pip='pip3'
 alias prune='git branch | grep -v "master" | xargs git branch -D'
-
+alias vim='nvim'
 # Removes all git branches except the master/main branch
 alias prune="git branch | grep -v "master" | xargs git branch -D"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
