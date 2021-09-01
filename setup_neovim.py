@@ -15,9 +15,6 @@ def main():
     # Change the git text editor to neovim
     os.system("git config --global core.editor nvim")
 
-    # Create an alias for neovim
-    os.system("alias vim=nvim")
-
 
 if __name__ == "__main__":
     main()
