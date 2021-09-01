@@ -32,6 +32,9 @@ command_line_installs = [
     'curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
                 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim',
 
+    # Install Neovim
+    'brew install neovim'
+
     # Install oh-my-zsh
     'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
 ]
@@ -64,7 +67,7 @@ def create_sym_links():
         os.system(f"ln -s ~/dotfiles/{file} ~/.{file}")
 
 
-def vs_code_settings(): 
+def vs_code_settings():
     # Creates symlinks for VSCode preferences
     os.system("ln -s ~/dotfiles/settings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/settings.json")
     os.system("ln -s ~/dotfiles/keybindings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/keybindings.json")

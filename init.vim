@@ -23,3 +23,5 @@ map <C-n> :NERDTreeToggle<CR>
 
 " --- SOURCE ---
 source $HOME/.config/nvim/vim-plug/plugins.vim
+
+autocmd BufWritePre * :%s/\s\+$//e
