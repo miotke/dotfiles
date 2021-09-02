@@ -8,21 +8,15 @@ Run `./bootstrap.py`
 
 Running `bootstrap.py` does the following the things:
 * Installs [Homebrew](https://brew.sh) as a macOS package manager
-* Installs [oh-my-zsh](https://ohmyz.sh) for zsh configuration management
-* Installs Vim from Homebrew
+* Installs all items in the `INSTALL_PACKAGES` list
 * Clones down this [dotfile](https://github.com/miotke/dotfiles) repo from GitHub
-* Installs [DB Browser for SQLite](https://sqlitebrowser.org/)
-* Installs tree from Homebrew
-* Installs the [GitHub CLI](https://cli.github.com/)
+* Creates the `Developer` directory. This directory contains all Git repos
+* Changes the default editor for Git to Neovim
+* Generates symlinks for the following items
+	* zshrc -> ~/.zshrc
+	* nvim -> ~/.config
+	* Settings for VS Code
 
-#### Neovim
-
-Run: `python setup_neovim.py`
-
-This creates an symlink from the nvim directory to `~/.config` that contains all neovim configuration files.
-Once the symlink is created open neovim and run `:PlugInstall` to install all plug-ins found in vim-plug/plugins.vim.
-
-Inside of the zshrc file is an alias for vim=nvim.
 
 ### Other Files
 

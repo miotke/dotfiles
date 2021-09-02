@@ -19,11 +19,30 @@ colorscheme monokai
 " --- AIRLINE ---
 let g:airline_theme='bubblegum' "Sets the Airline theme to bubblegum
 
+" --- NERDCommentor ---
+"Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
+" Enables keybinds to be overriden for NERDCommentor
+let g:NERDCreateDefaultMappings = 0
+
 " --- MAPS ---
+" Sets Control-n to toggle NERDTree on the left hand side
 map <C-n> :NERDTreeToggle<CR> " Sets Control-n to toggle NERDTree on the left hand side
 
+" Allows NERDCommentor to comment lines using control-c
+map <C-c> :call NERDComment(0,"toggle")<CR>
 " --- SOURCE ---
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
 " --- AUTO COMMANDS ---
-autocmd BufWritePre * :%s/\s\+$//e " Removes trailing white space on write/save
+" Removes trailing white space on write/save
+autocmd BufWritePre * :%s/\s\+$//e

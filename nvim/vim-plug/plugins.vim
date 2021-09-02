@@ -13,6 +13,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline'                " Airline
     Plug 'vim-airline/vim-airline-themes'         " Airline themes
     Plug 'scrooloose/NERDTree'                    " File Explorer
+    Plug 'preservim/nerdcommenter'                " Easier commenting
     Plug 'airblade/vim-gitgutter'                 " Shows git changes next to the line number
     Plug 'lukas-reineke/indent-blankline.nvim'    " Shows indentation lines
     Plug 'lewis6991/spellsitter.nvim'             " Spell checker
