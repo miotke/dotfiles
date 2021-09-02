@@ -16,8 +16,10 @@ set laststatus=0        " Always display the status line
 " --- THEME ---
 colorscheme monokai
 
+" --- AIRLINE ---
+let g:airline_theme='bubblegum' "Sets the Airline theme to bubblegum
+
 " --- MAPS ---
-" NerdTree specific settings
 map <C-n> :NERDTreeToggle<CR> " Sets Control-n to toggle NERDTree on the left hand side
 
 " --- SOURCE ---
