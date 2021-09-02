@@ -12,16 +12,16 @@ set expandtab           " Converts tabs to spaces
 set smartindent         " Makes indenting smart
 set autoindent          " Good auto indent
 set laststatus=0        " Always display the status line
-set number              " Line numbers
 
 " --- THEME ---
 colorscheme monokai
 
 " --- MAPS ---
 " NerdTree specific settings
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR> " Sets Control-n to toggle NERDTree on the left hand side
 
 " --- SOURCE ---
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
-autocmd BufWritePre * :%s/\s\+$//e
+" --- AUTO COMMANDS ---
+autocmd BufWritePre * :%s/\s\+$//e " Removes trailing white space on write/save
