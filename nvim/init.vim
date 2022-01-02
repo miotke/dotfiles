@@ -1,3 +1,5 @@
+" Configuration for NeoVim
+
 set number 		        " Sets line numbers
 syntax enable 		    " Enables syntax highlighting
 set encoding=utf-8	    " The encoding displayed
