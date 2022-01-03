@@ -47,7 +47,7 @@ def install_from_homebrew():
 
 def create_directories():
     # Creats a directory for all Git repos
-    os.system("mkdir ~/Developer")
+    os.system(f"mkdir {HOME}/Developer")
 
 
 def setup_commands():
@@ -65,16 +65,22 @@ def create_symlinks():
     # If more individual files need symlinks, add them to the SYMLINK_FILES list.
     for file in SYMLINK_FILES:
         print(f"Creating sym links for {file}")
-        os.system(f"ln -s {HOME}/dotfiles/{file} ~/.{file}")
+        os.system(f"ln -s {HOME}/dotfiles/{file} {HOME}/.{file}")
 
     # Creates a symlink for the nvim folder which contains all Neovim config files
     os.system(f"ln -s {HOME}/dotfiles/nvim {HOME}/.config")
 
 
 def vs_code_settings():
-    # Creates symlinks for VSCode preferences
-    os.system("ln -s ~/dotfiles/settings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/settings.json")
-    os.system("ln -s ~/dotfiles/keybindings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/keybindings.json")
+    path = "/Applications/Visual Studio Code.app"
+    app = os.path.isdir(path)
+
+    if app == True:
+        # Creates symlinks for VSCode preferences
+        os.system("ln -s {HOME}/dotfiles/settings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/settings.json")
+        os.system("ln -s {HOME}/dotfiles/keybindings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/keybindings.json")
+    else:
+        print("VS Code needs to be installed or launched first.")
 
 
 if __name__ == "__main__":
