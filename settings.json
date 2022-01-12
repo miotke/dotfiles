@@ -1,6 +1,8 @@
 {
     "workbench.statusBar.visible": true,
     "editor.fontSize": 13,
+    "editor.fontWeight": "normal",
+    "editor.fontFamily": "Monaco",
     "editor.minimap.enabled": false,
     "editor.showUnused": false,
 
@@ -10,7 +12,7 @@
         "statusBar.debuggingBackground": "#263238"
     },
     "explorer.confirmDragAndDrop": false,
-    "workbench.iconTheme": "vscode-great-icons",
+    "workbench.iconTheme": "material-icon-theme",
     "python.showStartPage": false,
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
@@ -23,5 +25,6 @@
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
-    }
+    },
+    "workbench.colorTheme": "GitHub Dark Default"
 }
