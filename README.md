@@ -1,6 +1,6 @@
 # dotfiles
 
-💻 This repo holds my dotfiles which are very minimal and a bootstrap script to setup a new Mac.
+Dotfiles and other settings files.
 
 ### Install Instructions
 
