@@ -9,6 +9,9 @@ def main():
     # Install vim-plug
     os.system("curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
 
+    # Removes the nvim folder that vim-plug creates in .config
+    os.system(f"rm -r {HOME}/.config/nvim")
+    
     # Symlink dotfiles/nvim to the .config folder.
     os.system(f"ln -s {HOME}/dotfiles/nvim {HOME}/.config")
 
