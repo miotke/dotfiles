@@ -26,6 +26,6 @@
         "default": "right",
         "jupyter-notebook": "left"
     },
-    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.colorTheme": "Monokai Dimmed",
     "files.trimTrailingWhitespace": true
 }

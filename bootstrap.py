@@ -46,7 +46,7 @@ def install_from_homebrew():
 
 
 def create_directories():
-    # Creats a directory for all Git repos
+    # Creates a directory for all Git repos
     os.system(f"mkdir {HOME}/Developer")
 
 
@@ -76,11 +76,21 @@ def vs_code_settings():
     app = os.path.isdir(path)
 
     if app == True:
-        # Creates symlinks for VSCode preferences
-        os.system("ln -s {HOME}/dotfiles/settings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/settings.json")
-        os.system("ln -s {HOME}/dotfiles/keybindings.json /Users/andrewmiotke/Library/Application\ Support/Code/User/keybindings.json")
+        try:
+            # Creates symlinks for VSCode preferences
+            os.system("ln -s {HOME}/dotfiles/settings.json {HOME}/Library/Application\ Support/Code/User/settings.json")
+            os.system("ln -s {HOME}/dotfiles/keybindings.json {HOME}/Library/Application\ Support/Code/User/keybindings.json")
+        except:
+            print("VS Code needs to be installed or launched first.")
     else:
-        print("VS Code needs to be installed or launched first.")
+        try:
+            # opens VSCode then creates symlinks
+            os.system("open /Applications/Visual\ Studio\ Code.app")
+            # Creates symlinks for VSCode preferences
+            os.system("ln -s {HOME}/dotfiles/settings.json {HOME}/Library/Application\ Support/Code/User/settings.json")
+            os.system("ln -s {HOME}/dotfiles/keybindings.json {HOME}/Library/Application\ Support/Code/User/keybindings.json")
+        except:
+            print("VS Code needs to be installed or launched first.")
 
 
 if __name__ == "__main__":
@@ -88,4 +98,4 @@ if __name__ == "__main__":
     create_directories()
     setup_commands()
     create_symlinks()
-
+    vs_code_settings()
