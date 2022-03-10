@@ -26,6 +26,6 @@
         "default": "right",
         "jupyter-notebook": "left"
     },
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "Tomorrow Night Eighties",
     "files.trimTrailingWhitespace": true
 }
