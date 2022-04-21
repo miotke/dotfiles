@@ -5,6 +5,7 @@
     "editor.fontFamily": "Monaco",
     "editor.minimap.enabled": false,
     "editor.showUnused": false,
+    "editor.tabSize": 4,
 
     "workbench.colorCustomizations": {
         "statusBar.background" : "#1e1e1e",
@@ -19,13 +20,17 @@
     },
     "workbench.startupEditor": "none",
     "breadcrumbs.enabled": false,
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
     },
     "workbench.colorTheme": "Tomorrow Night Eighties",
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[go]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+    }
 }
