@@ -80,6 +80,9 @@ def vs_code_settings():
             # Creates symlinks for VSCode preferences
             os.system("ln -s {HOME}/dotfiles/settings.json {HOME}/Library/Application\ Support/Code/User/settings.json")
             os.system("ln -s {HOME}/dotfiles/keybindings.json {HOME}/Library/Application\ Support/Code/User/keybindings.json")
+
+            # Enable key-repeating for the Vim plug-in
+            os.system("defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false")
         except:
             print("VS Code needs to be installed or launched first.")
     else:
