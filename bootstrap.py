@@ -70,6 +70,10 @@ def create_symlinks():
     # Creates a symlink for the nvim folder which contains all Neovim config files
     os.system(f"ln -s {HOME}/dotfiles/nvim {HOME}/.config")
 
+def setup_helix(): 
+    # Creates a symlink for the helix directory in ~/.config
+    print(f"Creating symlink for the helix editor")
+    os.system(f"ln -s {HOME}/dotfiles/helix {HOME}/.config")
 
 def vs_code_settings():
     path = "/Applications/Visual Studio Code.app"

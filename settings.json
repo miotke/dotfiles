@@ -24,7 +24,7 @@
         "default": "right",
         "jupyter-notebook": "left"
     },
-    "workbench.colorTheme": "Tomorrow Night Eighties",
+    "workbench.colorTheme": "GitHub Sharp Dark",
     "files.trimTrailingWhitespace": true,
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
