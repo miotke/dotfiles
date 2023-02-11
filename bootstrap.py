@@ -15,7 +15,7 @@ INSTALL_PACKAGES = [
     # Install MonitorControl
     "brew install --cask monitorcontrol",
     # Install DB Browser for SQLite
-    "brew cask install db-browser-for-sqlite",
+    "brew install db-browser-for-sqlite --cask",
     # Install tree
     "brew install tree",
     # Install the GitHub CLI tools
