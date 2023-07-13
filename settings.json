@@ -31,12 +31,23 @@
     "files.trimTrailingWhitespace": true,
     "redhat.telemetry.enabled": false,
     "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnType": true
     },
     "python.defaultInterpreterPath": "/opt/homebrew/bin/python3.11",
     "python.analysis.extraPaths": ["${workspaceFolder}/global_helpers"],
     "python.autoComplete.extraPaths": ["${workspaceFolder}/global_helpers"],
     "files.associations": {
         "*panther_analysis_tool": "python"
-    }
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "[go]": {
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": false
+        },
+    },
+    "go.formatTool": "gofmt",
+    "editor.formatOnSave": false,
+    "go.toolsManagement.autoUpdate": true
 }
