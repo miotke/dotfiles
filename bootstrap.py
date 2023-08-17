@@ -10,16 +10,10 @@ import os
 
 # Installs Homebrew and various packages
 INSTALL_PACKAGES = [
-    # Install Homebrew
-    '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"',
-    # Install MonitorControl
-    "brew install --cask monitorcontrol",
     # Install DB Browser for SQLite
     "brew install db-browser-for-sqlite --cask",
     # Install tree
     "brew install tree",
-    # Install the GitHub CLI tools
-    "brew install gh",
     # Install htop
     "brew install htop",
     # Install vim-plug for Neovim
@@ -70,7 +64,7 @@ def create_symlinks():
     # Creates a symlink for the nvim folder which contains all Neovim config files
     os.system(f"ln -s {HOME}/dotfiles/nvim {HOME}/.config")
 
-def setup_helix(): 
+def setup_helix():
     # Creates a symlink for the helix directory in ~/.config
     print(f"Creating symlink for the helix editor")
     os.system(f"ln -s {HOME}/dotfiles/helix {HOME}/.config")
