@@ -19,7 +19,7 @@ Running `bootstrap.py` does the following the things:
 
 ### Other Files
 
-This repo also contains other configuration files and preferences
+This repo also contains other configuration files and preferences.
 
 * iTerm2 Settings
 
