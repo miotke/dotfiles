@@ -95,8 +95,8 @@ def vs_code_settings():
 
 
 if __name__ == "__main__":
-    install_from_homebrew()
-    create_directories()
-    setup_commands()
-    create_symlinks()
+    #install_from_homebrew()
+    #create_directories()
+    #setup_commands()
+    #create_symlinks()
     vs_code_settings()
