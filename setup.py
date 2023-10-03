@@ -2,7 +2,6 @@ import os
 import time
 
 def main():
-
     HOME = os.environ["HOME"]
     DOTFILES = os.path.join(HOME, "developer", "dotfiles")
 
@@ -10,11 +9,16 @@ def main():
 
     # Install homebrew
     os.system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
+    print("Homebrew installed")
 
     install_homebrew_packages()
     create_symlinks(HOME, DOTFILES)
     configure_vs_codium(HOME, DOTFILES)
     install_optional_homebrew_packages()
+
+    # Set Neovim as git editor
+    os.system("git config --global core.editor nvim")
+    print("Neovim set as git editor")
 
 
 def install_homebrew_packages():
