@@ -100,6 +100,7 @@ alias python='python3.11'
 alias pip='pip3'
 alias prune='git branch | grep -v "master" | xargs git branch -D'
 alias vim='nvim'
+alias code='codium'
 # Removes all git branches except the master/main branch
 alias prune="git branch | grep -v "master" | xargs git branch -D"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
