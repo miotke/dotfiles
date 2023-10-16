@@ -35,6 +35,8 @@ def install_homebrew_packages():
         ("Neovim", "brew install neovim"),
         # Install VSCodium
         ("VSCodium", "brew install --cask vscodium"),
+        # Install RapidAPI
+        ("RapidAPI", "brew install --cask rapidapi"),
     ]
 
     for package in INSTALL_PACKAGES:
