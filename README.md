@@ -2,6 +2,8 @@
 
 Dotfiles and other settings files.
 
+⚠️ These are random configuration files that I use (and sometimes don't) and should be considered more of a "mind dump" of configs and notes about them. 
+
 ### Install Instructions
 
 Run `./bootstrap.py`
