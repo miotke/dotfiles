@@ -34,7 +34,7 @@
         "editor.defaultFormatter": "ms-python.python",
         "editor.formatOnType": true
     },
-    "python.defaultInterpreterPath": "/opt/homebrew/bin/python3.11",
+    "python.defaultInterpreterPath": "/Users/andrew/venv/requests",
     "python.analysis.extraPaths": ["${workspaceFolder}/global_helpers"],
     "python.autoComplete.extraPaths": ["${workspaceFolder}/global_helpers"],
     "files.associations": {
@@ -44,10 +44,13 @@
     "[go]": {
         "editor.formatOnSave": false,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": false
+            "source.organizeImports": "never"
         },
     },
     "go.formatTool": "gofmt",
     "editor.formatOnSave": false,
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
 }
