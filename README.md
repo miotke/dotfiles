@@ -2,7 +2,10 @@
 
 Dotfiles and other settings files.
 
-⚠️ These are random configuration files that I use (and sometimes don't) and should be considered more of a "mind dump" of configs and notes about them. 
+### Neovim config
+
+* Theme: [Everforest](https://github.com/sainnhe/everforest/tree/master) with manual install
+* Neovim script base: [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) - All configurations are in `nvim/init.lua`.
 
 ### Install Instructions
 
