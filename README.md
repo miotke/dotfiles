@@ -2,7 +2,7 @@
 
 Dotfiles and other settings files.
 
-### Neovim configu
+### Neovim config
 
 * Theme: [Everforest](https://github.com/sainnhe/everforest/tree/master) with manual install
 * Neovim script base: [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) - All configurations are in `nvim/init.lua`.
