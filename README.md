@@ -15,7 +15,6 @@ Running `bootstrap.py` does the following the things:
 * Installs [Homebrew](https://brew.sh) as a macOS package manager
 * Installs all items in the `INSTALL_PACKAGES` list
 * Clones down this [dotfile](https://github.com/miotke/dotfiles) repo from GitHub
-* Creates the `Developer` directory. This directory contains all Git repos
 * Changes the default editor for Git to Neovim
 * Generates symlinks for the following items
 	* zshrc -> ~/.zshrc
@@ -25,7 +24,7 @@ Running `bootstrap.py` does the following the things:
 
 ### Other Files
 
-This repo also contains other configuration files and preferences
+This repo also contains other configuration files and preferences.
 
 * iTerm2 Settings
 
