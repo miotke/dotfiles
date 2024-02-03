@@ -8,24 +8,24 @@ local opts = { noremap = true, silent = true }
 --keymap({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
-keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
-keymap('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-keymap('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-keymap('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+-- keymap('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+-- keymap('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+-- keymap('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+-- keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
  
 -- Keeps current line in the center when searching
 --keymap("n", "n", "nzz")
 
  -- Stay in indent mode
- keymap("v", "<", "<gv")
- keymap("v", ">", ">gv")
+-- keymap("v", "<", "<gv")
+-- keymap("v", ">", ">gv")
 
 -- Telescope
--- keymap('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
+--keymap('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 -- keymap('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 --keymap('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 --keymap('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'Search [F]iles in current directory' })

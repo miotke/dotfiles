@@ -6,5 +6,5 @@ vim.opt.clipboard = "unnamedplus" 	-- Sync clipboard between OS and Neovim
 vim.opt.breakindent = true       	-- Enable break indent
 vim.opt.undofile = true 		-- Save undo history
 vim.opt.wrap = false			-- Turns off line wrap
-vim.opt.termguicolors = true
+vim.opt.termguicolors = true            -- Turns on terminal colors
 
