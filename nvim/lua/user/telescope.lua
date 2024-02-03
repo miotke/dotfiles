@@ -10,6 +10,9 @@ local M = {
         -- NOTE: If you are having trouble with this installation,
         --       refer to the README for telescope-fzf-native for more instructions.
         build = 'make',
+	cond = function()
+	    return vim.fn.executable 'make' == 1
+	end,
 	lazy = true
 	}
     }
@@ -37,15 +40,12 @@ function M.config()
 		theme = "dropdown",
 		previewer = false,
 	      },
-	}
+	},
+	vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
+
     }
 
- --   require("telescope.builtin").setup {
---	vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
---    }
 end
-
-
 
 return M
 
