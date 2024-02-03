@@ -7,7 +7,9 @@ require ("user.launch")
 require ("user.options")
 require ("user.keymaps")
 --require ("user.telescope")
+
 spec ("user.telescope")
+
 -- Specs (plugins)
 spec ("user.colorscheme")
 spec ("user.treesitter")
