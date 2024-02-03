@@ -6,7 +6,8 @@ vim.keymap.set('', '<space><space>', '<nop>', { noremap = true, silent = true })
 require ("user.launch")
 require ("user.options")
 require ("user.keymaps")
-
+--require ("user.telescope")
+spec ("user.telescope")
 -- Specs (plugins)
 spec ("user.colorscheme")
 spec ("user.treesitter")
@@ -18,5 +19,7 @@ spec ("user.vim-rhubarb")
 spec ("user.indent-blankline")
 --spec ("user.whichkey")
 spec ("user.gitsigns")
-spec ("user.telescope")
 require ("user.lazy")
+
+
+
