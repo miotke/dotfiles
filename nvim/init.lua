@@ -12,7 +12,6 @@ spec ("user.whichkey")
 spec ("user.lualine")
 spec ("user.vim-sleuth")
 spec ("user.vim-fugitive")
-spec ("user.vim-rhubarb")
 spec ("user.indent-blankline")
 spec ("user.gitsigns")
 
