@@ -5,9 +5,9 @@ local M = {
     "nvim-lua/plenary.nvim",
     { 
       "nvim-telescope/telescope-fzf-native.nvim",
-      build = 'make',
+      build = "make",
       cond = function()
-	return vim.fn.executable 'make' == 1
+	return vim.fn.executable "make" == 1
       end,
     },
   }
@@ -43,8 +43,8 @@ end
   -- Telescope live_grep in git root
   -- Function to find the git root directory based on the current buffer's path
  local function find_git_root()
-    -- Use the current buffer's path as the starting point for the git search
-    local current_file = vim.api.nvim_buf_get_name(0)
+  -- Use the current buffer's path as the starting point for the git search
+  local current_file = vim.api.nvim_buf_get_name(0)
     local current_dir
     local cwd = vim.fn.getcwd()
     -- If the buffer is not associated with a file, return nil

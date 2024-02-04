@@ -16,15 +16,6 @@ function M.config()
         enabled = true,
         suggestions = 20,
       },
-    --  presets = {
-    --    operators = false,
-    --    motions = false,
-    --    text_objects = false,
-    --    windows = false,
-    --    nav = false,
-    --    z = false,
-    --    g = false,
-    --  },
     },
     window = {
       border = "rounded",
@@ -33,10 +24,6 @@ function M.config()
     },
     show_help = true,
     show_keys = true,
-    --disable = {
-    --  buftypes = {},
-    --  filetypes = { "TelescopePrompt" },
-    --},
   }
 
   local opts = {
@@ -49,3 +36,4 @@ function M.config()
 end
 
 return M
+
