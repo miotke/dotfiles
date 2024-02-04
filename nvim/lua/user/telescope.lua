@@ -3,13 +3,29 @@ local M = {
   tag = "0.1.5",
   dependencies = { 
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-fzf-native.nvim",
+    { 
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = 'make',
+      cond = function()
+	return vim.fn.executable 'make' == 1
+      end,
+    },
   }
 }
 
 function M.config()
-  local actions = require "telescope.actions"
-  local builtin = require "telescope.builtin"
+  local wk = require "which-key"
+  wk.register {
+    ["<leader>bb"] = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
+    ["<leader>fb"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    ["<leader>f"] = { "<cmd>Telescope find_files<cr>", "Find files" },
+    ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+    ["<leader>ft"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+    ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Help" },
+    ["<leader>fl"] = { "<cmd>Telescope resume<cr>", "Last Search" },
+    ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
+  }
 
   require("telescope").setup {
     defaults = { 
@@ -19,29 +35,15 @@ function M.config()
       path_display = { "smart" },
     },
 
-    mappings = {
-      n = {
-	["<esc>"] = actions.close,
-	["<leader>f"] = {
-	  builtin.find_files,
-	  desc = "Search [F] files in current directory"
-	},
-	["<leader>sh>"] = {
-	  builtin.help_tags,
-	  desc = "[S]earch [H]elp"
-	}
-      },
-    },
-
     pickers = {
       live_grep = { 
-	theme = "dropdown"
+        theme = "dropdown"
       }
     },
 
     find_files = {
       theme = "dropdown",
-      previewer = false,
+      previewer = true,
     },
     
     pcall(require('telescope').load_extension, 'fzf')
