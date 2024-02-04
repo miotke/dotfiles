@@ -5,7 +5,6 @@ Dotfiles and other settings files.
 ### Neovim config
 
 * Theme: [Everforest](https://github.com/sainnhe/everforest/tree/master) with manual install
-* Neovim script base: [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) - All configurations are in `nvim/init.lua`.
 
 ### Install Instructions
 
@@ -19,7 +18,6 @@ Running `bootstrap.py` does the following the things:
 * Generates symlinks for the following items
 	* zshrc -> ~/.zshrc
 	* nvim -> ~/.config
-	* Settings for VS Code
 
 
 ### Other Files
@@ -34,20 +32,3 @@ This repo also contains other configuration files and preferences.
 	* `settings.json` contains all VSCode settings
 	* `keybindings.json` contains all custom VSCode keybindings
 
-### Shortcuts
-
-| Command   |          Action                                  |
-|-----------|--------------------------------------------------|
-|`ctrl-n`   | open\close NERDTree                              |
-|`ctrl-ww`  | focus\unfocus NERDTree or another split file     |
-|`s`        | open a verticle split with another selected file |
-|`i`        | open horizontal split with another selected file |
-|`\cc`      | comment a line with NERDCommenter                |
-|`\cu`      | uncomment a line with NERDCommenter              |
-|`0`        | jump to front of the line                        |
-|`4`        | jump to the end of the line                      |
-|`zz`       | focus selected line to the center                |
-|`y`        | copy selected text                               |
-|`p`        | paste copied text                                |
-|`d`        | cut selected text                                |
-|`ctrl-r`   | Re-do changes                                    |
