@@ -29,7 +29,7 @@ function M.config()
     window = {
       border = "rounded",
       position = "bottom",
-      padding = { 2, 2, 2, 2 },
+      padding = { 2, 10, 2, 2 },
     },
     show_help = true,
     show_keys = true,
