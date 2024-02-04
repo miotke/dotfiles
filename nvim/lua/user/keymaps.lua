@@ -14,8 +14,8 @@ keymap("v", ">", ">gv")
 
 -- Toggle relativenumbers
 keymap("n", "<leader>n", function()
-   -- sort of a "ternary" operator in lua
-   vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
-   vim.o.relativenumber = not vim.o.relativenumber               
+  -- sort of a "ternary" operator in lua
+  vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
+  vim.o.relativenumber = not vim.o.relativenumber               
 end, { desc = "Toggles relativenumbers off and on" })
 
