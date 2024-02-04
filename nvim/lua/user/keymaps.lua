@@ -2,6 +2,9 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
  
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Keeps current line in the center when searching
 keymap("n", "n", "nzz")
 

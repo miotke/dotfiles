@@ -1,11 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- Not really sure what this line below does.
--- Probably remove it
---vim.keymap.set('', '<space><space>', '<nop>', { noremap = true, silent = true }) 
-
-
 -- Requirements
 require ("user.launch")
 require ("user.options")
@@ -25,6 +17,4 @@ spec ("user.indent-blankline")
 spec ("user.gitsigns")
 
 require ("user.lazy")
-
-
 
