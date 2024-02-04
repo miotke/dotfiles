@@ -2,6 +2,17 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- TESTING FUNCTION WHICH TURNS ON/OFF RELATIVE NUMBERS
+function toggle_stuff()
+    -- sort of a "ternary" operator in lua
+    vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
+    vim.o.relativenumber = not vim.o.relativenumber
+end
+keymap('n', '<leader>s', ':lua toggle_stuff()<CR>', opts)
+
+--local builtin = require("telescope.builtin")
+--keymap("n", "<leader>ff", builtin.find_files, {})
+
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -18,11 +29,11 @@ local opts = { noremap = true, silent = true }
 -- keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
  
 -- Keeps current line in the center when searching
---keymap("n", "n", "nzz")
+keymap("n", "n", "nzz")
 
  -- Stay in indent mode
--- keymap("v", "<", "<gv")
--- keymap("v", ">", ">gv")
+keymap("v", "<", "<gv")
+keymap("v", ">", ">gv")
 
 -- Telescope
 --keymap('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
