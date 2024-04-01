@@ -17,6 +17,10 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
- -- Stay in indent mode
+-- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", { desc = 'Indent to the left' })
 vim.keymap.set("v", ">", ">gv", { desc = 'Indent to the right' })
+
+-- [[ nvim-macro keymaps ]]
+-- Wraps current line in double quotes and appends a comma
+vim.keymap.set('n', '<leader>mq', 'i"<Esc>$a",<Esc>j^', { remap = true, desc = "Wrap current line in double quotes" })
