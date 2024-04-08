@@ -13,6 +13,7 @@ return {
       ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
       ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
       ['<leader>m'] = { name = '[M]acros', _ = 'which_key_ignore' },
+      -- ['<leader>e'] = { name = 'File [E]xplore', _ = 'which_key_ignore' },
     }
   end
 

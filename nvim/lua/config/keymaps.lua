@@ -21,6 +21,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set("v", "<", "<gv", { desc = 'Indent to the left' })
 vim.keymap.set("v", ">", ">gv", { desc = 'Indent to the right' })
 
--- [[ nvim-macro keymaps ]]
+-- [[ NVIM-TREE  KEYMAPS]]
+-- Toggle nvim-tree
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", {  desc = "Toggle File Explorer" })
+
+-- [[ NVIM-MACRO KEYMAPS ]]
 -- Wraps current line in double quotes and appends a comma
 vim.keymap.set('n', '<leader>mq', 'i"<Esc>$a",<Esc>j^', { remap = true, desc = "Wrap current line in double quotes" })
