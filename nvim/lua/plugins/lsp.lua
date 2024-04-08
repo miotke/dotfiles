@@ -99,6 +99,7 @@ return {
           }
         end,
       }
+
         -- [[ Configure nvim-cmp ]]
         -- See `:help cmp`
         -- This gives Python's autocomplete options.

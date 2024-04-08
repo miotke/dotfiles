@@ -1,5 +1,6 @@
 .DS_Store
 nvim/autoload
-.vscode/
+.vscode/*
 nvim/lazy-lock.json
+
 
