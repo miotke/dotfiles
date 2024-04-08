@@ -6,6 +6,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  terraformls = {},
 }
 
 return {
