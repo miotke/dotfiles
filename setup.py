@@ -22,6 +22,8 @@ def main():
 
 
 def install_homebrew_packages():
+    # The first element is the name of the package
+    # The second element is the brew command
     INSTALL_PACKAGES = [
          # Install oh-my-zsh
         ("oh-my-zsh", 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'),
@@ -37,6 +39,9 @@ def install_homebrew_packages():
         ("VSCodium", "brew install --cask vscodium"),
         # Install RapidAPI
         ("RapidAPI", "brew install --cask rapidapi"),
+        # Install nerd fonts
+        ("cask-fonts", "brew tap homebrew/cask-fonts"),
+        ("font-hack-nerd-fonts", "brew install font-hack-nerd-font"),
     ]
 
     for package in INSTALL_PACKAGES:
