@@ -42,6 +42,8 @@ def install_homebrew_packages():
         # Install nerd fonts
         ("cask-fonts", "brew tap homebrew/cask-fonts"),
         ("font-hack-nerd-fonts", "brew install font-hack-nerd-font"),
+        # Install Brew's Python3 package
+        ("Python3", "brew install python3"),
     ]
 
     for package in INSTALL_PACKAGES:
