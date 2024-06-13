@@ -69,10 +69,10 @@ def install_homebrew_packages():
 
     for package in INSTALL_PACKAGES:
         try:
-            print(f"Installing {package[0]}")
+            print(f"Installing {package[0]}\n")
             os.system(package[1])
         except:
-            print(f"Failed to install {package[0]}")
+            print(f"🚨 Failed to install {package[0]}\n")
 
 
 def macos_config(HOME: str):
