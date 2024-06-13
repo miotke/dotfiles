@@ -19,8 +19,9 @@ def main():
         # Update $PATH
         os.system("eval '$/opt/homebrew/bin/brew shellenv)'")
 
+        install_homebrew_packages()
+
     # Run the rest of the setup functions
-    install_homebrew_packages()
     configure_oh_my_zsh()
     macos_config(HOME)
     create_symlinks(HOME, DOTFILES)
@@ -108,6 +109,7 @@ def create_symlinks(HOME: str, DOTFILES: str):
 
     # --- NEOVIM ---
     os.system(f"ln -s {DOTFILES}/nvim {HOME}/.config")
+
 
 if __name__ == "__main__":
     main()
