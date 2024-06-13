@@ -15,7 +15,7 @@ def main():
         os.system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
 
         # Create symlink to .zprofile
-        os.system(f"ln -s {DOTFILES}/zprofile {HOME}")
+        os.system(f"ln -s {DOTFILES}/zprofile {HOME}/.zprofile")
         # Update $PATH
         os.system("eval '$/opt/homebrew/bin/brew shellenv)'")
 
