@@ -17,7 +17,7 @@ def main():
         # Create symlink to .zprofile
         os.system(f"ln -s {DOTFILES}/zprofile {HOME}/.zprofile")
         # Update $PATH
-        os.system("eval '$/opt/homebrew/bin/brew shellenv)'")
+        os.system("eval '$(/opt/homebrew/bin/brew shellenv)'")
 
         install_homebrew_packages()
 
