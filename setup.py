@@ -5,6 +5,7 @@ def main():
     HOME = os.environ["HOME"]
     DOTFILES = os.path.join(HOME, "developer", "dotfiles")
 
+    # --- HOMEBREW --- 
     # Check if Homebrew is installed 
     homebrew_path = os.path.isdir("/opt/homebrew")
     if homebrew_path:
@@ -18,13 +19,16 @@ def main():
         # Update $PATH
         os.system("eval '$/opt/homebrew/bin/brew shellenv)'")
 
-        install_homebrew_packages()
-        configure_oh_my_zsh(HOME)
-        macos_config(HOME)
-        create_symlinks(HOME, DOTFILES)
+    # Run the rest of the setup functions
+    install_homebrew_packages()
+    configure_oh_my_zsh()
+    macos_config(HOME)
+    create_symlinks(HOME, DOTFILES)
 
 
-def configure_oh_my_zsh(HOME:str):
+def configure_oh_my_zsh():
+    """ Install oh_my_zsh """
+
     install_command = 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
     os.system(install_command)
 
