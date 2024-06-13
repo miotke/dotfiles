@@ -36,7 +36,7 @@ def install_homebrew_packages():
     # The second element is the brew command
     INSTALL_PACKAGES = [
         # 1Password
-        ("1Password", "brew install --cask 1password")
+        ("1Password", "brew install --cask 1password"),
 
         # iTerm2
         ("iTerm2", "brew install --cask iterm2"),
@@ -61,7 +61,7 @@ def install_homebrew_packages():
         ("Python3", "brew install python3"),
 
         # Spotify
-        ("Spotify", "brew install --cask spotify")
+        ("Spotify", "brew install --cask spotify"),
 
         # DB Browser for SQLite
         ("DB Browser for SQLite", "brew install db-browser-for-sqlite --cask"),
@@ -86,6 +86,7 @@ def macos_config(HOME: str):
     # Replace stock dock plist
     dock_plist_path = "macos_plists/com.apple.dock.plist"
     os.system(f"cp {dock_plist_path} {user_plist_path}")
+    os.system("killall Dock")
 
     # Set neovim as the default git editor
     os.system("git config --global core.editor nvim")
