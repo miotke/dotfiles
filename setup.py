@@ -37,6 +37,7 @@ def configure_oh_my_zsh():
 def install_homebrew_packages():
     """ Installs all homebrew packages """
 
+    print("\n‼️  Installing homebrew packages\n")
     # The first element is the name of the package
     # The second element is the brew command
     INSTALL_PACKAGES = [
