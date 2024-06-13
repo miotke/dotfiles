@@ -1,49 +1,70 @@
 import os
-import time
+
 
 def main():
     HOME = os.environ["HOME"]
     DOTFILES = os.path.join(HOME, "developer", "dotfiles")
 
-    create_directories(HOME)
-
-    # Check if homebrew is installed
-    check_for_homebrew = os.system("which brew")
-    if check_for_homebrew != "":
-        pass
-    else:
+    # Check if Homebrew is installed 
+    homebrew_path = os.path.isdir("/opt/homebrew")
+    if homebrew_path:
+        print("Homebrew already installed")
+    else: 
         # Install homebrew
         os.system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
-        print("Homebrew installed")
 
-    install_homebrew_packages()
-    create_symlinks(HOME, DOTFILES)
-    install_optional_homebrew_packages()
+        # Create symlink to .zprofile
+        os.system(f"ln -s {DOTFILES}/zprofile {HOME}")
+        # Update $PATH
+        os.system("eval '$/opt/homebrew/bin/brew shellenv)'")
 
-    # Set Neovim as git editor
-    os.system("git config --global core.editor nvim")
-    print("Neovim set as git editor")
+        install_homebrew_packages()
+        configure_oh_my_zsh(HOME)
+        macos_config(HOME)
+        create_symlinks(HOME, DOTFILES)
+
+
+def configure_oh_my_zsh(HOME:str):
+    install_command = 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+    os.system(install_command)
 
 
 def install_homebrew_packages():
+    """ Installs all homebrew packages """
+
     # The first element is the name of the package
     # The second element is the brew command
     INSTALL_PACKAGES = [
-         # Install oh-my-zsh
-        ("oh-my-zsh", 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'),
-        # Install tree
+        # 1Password
+        ("1Password", "brew install --cask 1password")
+
+        # iTerm2
+        ("iTerm2", "brew install --cask iterm2"),
+
+        # tree
         ("Tree", "brew install tree"),
-        # Install htop
+
+        # htop
         ("htop", "brew install htop"),
-        # Install Neovim
+
+        # Neovim
         ("Neovim", "brew install neovim"),
-        # Install RapidAPI
+
+        # RapidAPI
         ("RapidAPI", "brew install --cask rapidapi"),
-        # Install nerd fonts
+
+        # nerd fonts
         ("cask-fonts", "brew tap homebrew/cask-fonts"),
         ("font-hack-nerd-fonts", "brew install font-hack-nerd-font"),
-        # Install Brew's Python3 package
+
+        # Brew's Python3 package
         ("Python3", "brew install python3"),
+
+        # Spotify
+        ("Spotify", "brew install --cask spotify")
+
+        # DB Browser for SQLite
+        ("DB Browser for SQLite", "brew install db-browser-for-sqlite --cask"),
     ]
 
     for package in INSTALL_PACKAGES:
@@ -54,41 +75,34 @@ def install_homebrew_packages():
             print(f"Failed to install {package[0]}")
 
 
-def create_directories(HOME: str):
-    # Create directory for Git repos
+def macos_config(HOME: str):
+    """ Configure all macOS settings and create directories """
+
+    user_plist_path = os.path.join(HOME, "library", "Preferences")
+
+    # Create directory for Git repos 
     os.system(f"mkdir {HOME}/Developer")
+
+    # Replace stock dock plist
+    dock_plist_path = "macos_plists/com.apple.dock.plist"
+    os.system(f"cp {dock_plist_path} {user_plist_path}")
+
+    # Set neovim as the default git editor
+    os.system("git config --global core.editor nvim")
+    print("Neovim set as git editor")
 
 
 def create_symlinks(HOME: str, DOTFILES: str):
-    SYMLINK_FILES = ["zshrc"]
+    """ Create symlinks """
 
-    # Creates a symlink for the nvim folder which contains all Neovim config files
+    # --- ZSH ---
+    # Remove default zshrc file
+    os.system(f"rm {HOME}/.zshrc")
+    # Create symlink for zshrc
+    os.system(f"ln -s {DOTFILES}/zshrc {HOME}/.zshrc")
+
+    # --- NEOVIM ---
     os.system(f"ln -s {DOTFILES}/nvim {HOME}/.config")
-
-    try:
-        # Remove created zshrc file
-        os.system(f"rm {HOME}/.zshrc")
-        # Create symlink for zshrc
-        os.system(f"ln -s {DOTFILES}/zshrc {HOME}/.zshrc")
-    except: 
-        print("Failed to delete zshrc file")
-
-
-def install_optional_homebrew_packages():
-    PACKAGES = [
-        # Install DB Browser for SQLite
-        ("DB Browser for SQLite", "brew install db-browser-for-sqlite --cask"),
-    ]
-
-    install_package = False
-
-    # If install_package is True install the package using
-    # otherwise skip and move to the next package in the list.
-    for package in PACKAGES:
-        install_package_prompt = input(f"Install {package[0]} y/n? ")
-        if install_package:
-            os.system(package[1])
-
 
 if __name__ == "__main__":
     main()
