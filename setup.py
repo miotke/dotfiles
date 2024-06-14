@@ -19,9 +19,9 @@ def main():
         # Update $PATH
         os.system("eval '$(/opt/homebrew/bin/brew shellenv)'")
 
-        install_homebrew_packages()
 
     # Run the rest of the setup functions
+    install_homebrew_packages()
     configure_oh_my_zsh()
     macos_config(HOME)
     create_symlinks(HOME, DOTFILES)
