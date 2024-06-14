@@ -109,7 +109,7 @@ def create_symlinks(HOME: str, DOTFILES: str):
     os.system(f"ln -s {DOTFILES}/zshrc {HOME}/.zshrc")
 
     # --- NEOVIM ---
-    os.system(f"ln -s {DOTFILES}/nvim {HOME}/.config")
+    os.system(f"ln -s {DOTFILES}/nvim {HOME}/.config/nvim")
 
 
 if __name__ == "__main__":
