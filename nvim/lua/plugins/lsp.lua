@@ -69,7 +69,7 @@ return {
         end, '[w]orkspace [l]ist folders')
 
         -- create a command `:format` local to the lsp buffer
-        vim.api.nvim_buf_create_user_command(bufnr, 'format', function(_)
+        vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
           vim.lsp.buf.format()
         end, { desc = 'format current buffer with lsp' })
       end
