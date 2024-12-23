@@ -1,9 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-# export ZSH="$HOME/.oh-my-zsh"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -22,6 +19,10 @@ function git_branch_name() {
 setopt PROMPT_SUBST  # Enable prompt substitution
 PROMPT='%F{187}[%*]%f$(git_branch_name) %F{green}%~%f: '
 
+# Colors directories when using ls 
+autoload -U colors && colors
+export CLICOLOR=1
+alias ls='ls --color=auto'
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -55,7 +56,8 @@ setopt HIST_SAVE_NO_DUPS     # Don't write duplicate entries
 setopt SHARE_HISTORY         # Share history between sessions
 
 # Case-insensitive path completion 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
 
 # User configuration
