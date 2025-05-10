@@ -1,157 +1,150 @@
-local servers = {
-  jedi_language_server = {},
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
-  terraformls = {},
-}
+-- Add this at the top of your lsp.lua file
+vim.api.nvim_create_user_command("InstallMasonLSPs", function()
+  vim.cmd("MasonInstall lua-language-server jedi-language-server terraform-ls")
+end, {})
 
 return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
-
-      -- Automatically install LSPs to stdpath for neovim
-      { "williamboman/mason.nvim", config = true },
+      "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { "j-hui/fidget.nvim",       opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
+      { "j-hui/fidget.nvim", opts = {} },
       "folke/neodev.nvim",
-    }, -- end dependcies
-
-
+    },
     config = function()
-      -- [[ configure lsp ]]
-      --  this function gets run when an lsp connects to a particular buffer.
-      local on_attach = function(_, bufnr)
-        -- note: remember that lua is a real programming language, and as such it is possible
-        -- to define small helper and utility functions so you don't have to repeat yourself
-        -- many times.
-        --
-        -- in this case, we create a function that lets us more easily define mappings specific
-        -- for lsp related items. it sets the mode, buffer and description for us each time.
-        local nmap = function(keys, func, desc)
-          if desc then
-            desc = 'lsp: ' .. desc
-          end
-
-          vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-        end
-
-        nmap('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
-        nmap('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction')
-
-        nmap('gd', require('telescope.builtin').lsp_definitions, '[g]oto [d]efinition')
-        nmap('gr', require('telescope.builtin').lsp_references, '[g]oto [r]eferences')
-        nmap('gi', require('telescope.builtin').lsp_implementations, '[g]oto [i]mplementation')
-        nmap('<leader>d', require('telescope.builtin').lsp_type_definitions, 'type [d]efinition')
-        nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[d]ocument [s]ymbols')
-        nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[w]orkspace [s]ymbols')
-
-        -- see `:help k` for why this keymap
-        -- nmap('k', vim.lsp.buf.hover, 'hover documentation')
-        nmap('<c-k>', vim.lsp.buf.signature_help, 'signature documentation')
-
-        -- lesser used lsp functionality
-        nmap('gd', vim.lsp.buf.declaration, '[g]oto [d]eclaration')
-        nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[w]orkspace [a]dd folder')
-        nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[w]orkspace [r]emove folder')
-        nmap('<leader>wl', function()
-          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, '[w]orkspace [l]ist folders')
-
-        -- create a command `:format` local to the lsp buffer
-        vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-          vim.lsp.buf.format()
-        end, { desc = 'format current buffer with lsp' })
-      end
-
+      -- Define a list of servers to use
+      local servers = {
+        "lua_ls",              -- Lua
+        "jedi_language_server", -- Python
+        "terraformls",         -- Terraform
+        -- Add more servers here as needed
+      }
+      
       -- Setup neovim lua configuration
       require('neodev').setup()
-
-      -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+      
+      -- Initialize mason
+      require("mason").setup({
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+          }
+        }
+      })
+      
+      -- Define a basic on_attach function for LSP servers
+      local on_attach = function(_, bufnr)
+        -- Define keymaps
+        local function buf_set_keymap(mode, lhs, rhs, desc)
+          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+        end
+        
+        -- LSP keybindings
+        buf_set_keymap('n', 'gd', vim.lsp.buf.definition, 'Go to Definition')
+        buf_set_keymap('n', 'gr', vim.lsp.buf.references, 'Go to References')
+        buf_set_keymap('n', 'gi', vim.lsp.buf.implementation, 'Go to Implementation')
+        buf_set_keymap('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
+        buf_set_keymap('n', '<C-k>', vim.lsp.buf.signature_help, 'Signature Help')
+        buf_set_keymap('n', '<leader>rn', vim.lsp.buf.rename, 'Rename')
+        buf_set_keymap('n', '<leader>ca', vim.lsp.buf.code_action, 'Code Action')
+        
+        -- Create a command `:Format` for formatting
+        vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+          vim.lsp.buf.format()
+        end, { desc = 'Format current buffer with LSP' })
+      end
+      
+      -- Set up capabilities
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-      -- Ensure the servers above are installed
-      local mason_lspconfig = require "mason-lspconfig"
-
-      mason_lspconfig.setup {
-        ensure_installed = vim.tbl_keys(servers),
-      }
-
-      -- -- Loop through all servers in local servers and install the LSP
-      mason_lspconfig.setup_handlers {
-        function(server_name)
-          require("lspconfig")[server_name].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = servers[server_name],
-            filetypes = (servers[server_name] or {}).filetypes,
-          }
-        end,
-      }
-
-        -- [[ Configure nvim-cmp ]]
-        -- See `:help cmp`
-        -- This gives Python's autocomplete options.
-        local cmp = require 'cmp'
-        local luasnip = require 'luasnip'
-        require('luasnip.loaders.from_vscode').lazy_load()
-        luasnip.config.setup {}
-
-        cmp.setup {
-          snippet = {
-            expand = function(args)
-              luasnip.lsp_expand(args.body)
-            end,
+      
+      -- Function to set up LSP servers
+      local function setup_lsp_servers()
+        -- Server-specific settings
+        local server_settings = {
+          lua_ls = {
+            Lua = {
+              workspace = { checkThirdParty = false },
+              telemetry = { enable = false },
+            }
           },
-          completion = {
-            completeopt = 'menu,menuone,noinsert',
-          },
-          mapping = cmp.mapping.preset.insert {
-            ['<C-n>'] = cmp.mapping.select_next_item(),
-            ['<C-p>'] = cmp.mapping.select_prev_item(),
-            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete {},
-            ['<CR>'] = cmp.mapping.confirm {
-              behavior = cmp.ConfirmBehavior.Replace,
-              select = true,
-            },
-            ['<Tab>'] = cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif luasnip.expand_or_locally_jumpable() then
-                luasnip.expand_or_jump()
-              else
-                fallback()
-              end
-            end, { 'i', 's' }),
-            ['<S-Tab>'] = cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif luasnip.locally_jumpable(-1) then
-                luasnip.jump(-1)
-              else
-                fallback()
-              end
-            end, { 'i', 's' }),
-          },
-          sources = {
-            { name = 'nvim_lsp' },
-            { name = 'luasnip' },
-            { name = 'path' },
-          },
+          -- Add settings for other servers as needed
         }
+        
+        -- Loop through servers and set them up
+        for _, server_name in ipairs(servers) do
+          require('lspconfig')[server_name].setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = server_settings[server_name],
+          })
+        end
+      end
+      
+      -- Install servers directly using shell commands
+      vim.api.nvim_create_autocmd("VimEnter", {
+        callback = function()
+          -- This function will run on Vim startup
+          vim.defer_fn(function()
+            -- Map LSP servers to Mason package names
+            local server_to_package = {
+              lua_ls = "lua-language-server",
+              jedi_language_server = "jedi-language-server",
+              terraformls = "terraform-ls",
+            }
+            
+            for server_name, pkg_name in pairs(server_to_package) do
+              -- Check if package is installed
+              local is_installed = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/packages/" .. pkg_name) ~= ""
+              
+              if not is_installed then
+                print("Installing " .. pkg_name .. "...")
+                vim.cmd("MasonInstall " .. pkg_name)
+              end
+            end
+          end, 1000)  -- Delay to ensure Mason is initialized
+        end,
+        once = true,
+      })
+      
+      -- Set up LSP servers
+      setup_lsp_servers()
+      
+      -- Setup nvim-cmp
+      local cmp = require('cmp')
+      local luasnip = require('luasnip')
+      
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({
+          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+        }),
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+          { name = 'path' },
+        },
+      })
     end,
   }
 }

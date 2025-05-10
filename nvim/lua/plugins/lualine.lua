@@ -5,7 +5,7 @@ return {
   opts = {
     options = {
       icons_enabled = false,
-      theme = 'everforest',
+      theme = 'auto',
       component_separators = '|',
       section_separators = '',
     },

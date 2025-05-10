@@ -1,9 +1,9 @@
 return {
-  'sainnhe/everforest',
+  'febyeji/bluehour.nvim',
+  lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd.everforest_background = 'soft'
-    vim.cmd.colorscheme 'everforest'
+    vim.o.termguicolors = true
+    vim.cmd.colorscheme 'bluehour'
   end,
 }
-

@@ -67,12 +67,17 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias python='python3'
+alias python='/opt/homebrew/bin/python3'
 alias pip='pip3'
 alias prune='git branch | grep -v "master" | xargs git branch -D'
 alias vim='nvim'
 # Removes all git branches except the master/main branch
 alias prune="git branch | grep -v "master" | xargs git branch -D"
 alias l='ls -la'
+alias tf='terraform'
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 alias gam="/Users/andrewmiotke/bin/gamadv-xtd3/gam"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

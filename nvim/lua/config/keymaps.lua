@@ -28,3 +28,8 @@ vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", {  desc = "Toggle Fi
 -- [[ NVIM-MACRO KEYMAPS ]]
 -- Wraps current line in double quotes and appends a comma
 vim.keymap.set('n', '<leader>mq', 'i"<Esc>$a",<Esc>j^', { remap = true, desc = "Wrap current line in double quotes" })
+
+-- Toggle indent-blankline rainbow colors
+vim.keymap.set('n', '<leader>tr', function()
+  _G.toggle_indent_rainbow()
+end, { desc = "Toggle Rainbow Indents" })

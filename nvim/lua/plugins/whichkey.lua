@@ -1,20 +1,33 @@
 return {
   "folke/which-key.nvim",
-  opts = {},
-
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end,
   config = function()
-    require("which-key").register {
-      ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-      ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-      ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-      ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-      ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-      ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-      ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-      ['<leader>m'] = { name = '[M]acros', _ = 'which_key_ignore' },
-      -- ['<leader>e'] = { name = 'File [E]xplore', _ = 'which_key_ignore' },
-    }
+    local wk = require("which-key")
+    
+    -- Register all mappings using the array-based format
+    wk.register({
+      -- Group registrations
+      { "<leader>c", group = "[C]ode" },
+      { "<leader>d", group = "[D]ocument" },
+      { "<leader>g", group = "[G]it" },
+      { "<leader>h", group = "Git [H]unk" },
+      { "<leader>m", group = "[M]acros" },
+      { "<leader>r", group = "[R]ename" },
+      { "<leader>s", group = "[S]earch" },
+      { "<leader>t", group = "[T]oggle" },
+      { "<leader>w", group = "[W]orkspace" },
+      
+      -- Individual key mappings
+      { "<leader>tr", function() _G.toggle_indent_rainbow() end, desc = "Toggle Rainbow Indents" },
+      
+      -- You can add more specific keybindings here in the same format
+      -- Example:
+      -- { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      -- { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Find Text" },
+    })
   end
-
 }
