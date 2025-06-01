@@ -27,13 +27,6 @@ def main():
     create_symlinks(HOME, DOTFILES)
 
 
-def configure_oh_my_zsh():
-    """ Install oh_my_zsh """
-
-    install_command = 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-    os.system(install_command)
-
-
 def install_homebrew_packages():
     """ Installs all homebrew packages """
 
@@ -56,15 +49,11 @@ def install_homebrew_packages():
         # Neovim
         ("Neovim", "brew install neovim"),
 
-        # RapidAPI
-        ("RapidAPI", "brew install --cask rapidapi"),
-
-        # nerd fonts
-        ("cask-fonts", "brew tap homebrew/cask-fonts"),
-        ("font-hack-nerd-fonts", "brew install font-hack-nerd-font"),
-
         # Brew's Python3 package
         ("Python3", "brew install python3"),
+
+        # Ghostty terminal
+        ("ghostty", "brew install --cask ghostty")
 
         # Spotify
         ("Spotify", "brew install --cask spotify"),
@@ -110,6 +99,9 @@ def create_symlinks(HOME: str, DOTFILES: str):
 
     # --- NEOVIM ---
     os.system(f"ln -s {DOTFILES}/nvim {HOME}/.config/nvim")
+
+    # --- GHOSTTY -- 
+    os.system(f"ln -s {DOTFILES}/ghostty {HOME}/.config/ghostty")
 
 
 if __name__ == "__main__":

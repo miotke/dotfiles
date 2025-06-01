@@ -1,0 +1,25 @@
+# ~~ Colors ~~
+background = #2a292f
+foreground = #cfc6af
+
+# ~~ Font ~~
+# Font size 
+font-size = 14
+
+# Bold font
+font-family = JetBrains Mono
+font-family-bold = JetBrains Mono ExtraBold
+font-thicken = true
+font-thicken-strength = 255
+
+# Turn off ligatures 
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+# ~~ Key maps ~~
+# Split keymaps
+keybind = super+right=new_split:right
+keybind = super+left=new_split:left
+keybind = super+up=new_split:up
+keybind = super+down=new_split:down
