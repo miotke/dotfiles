@@ -10,7 +10,7 @@ function git_branch_name() {
 setopt PROMPT_SUBST  # Enable prompt substitution
 PROMPT='%F{187}[%*]%f$(git_branch_name) %F{green}%~%f: '
 
-# Colors directories when using ls 
+# Colors directories when using ls
 autoload -U colors && colors
 export CLICOLOR=1
 alias ls='ls --color=auto'
@@ -25,7 +25,7 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search    # Up arrow
 bindkey "^[[B" down-line-or-beginning-search  # Down arrow
 
-# History settings 
+# History settings
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -51,9 +51,9 @@ alias vim='nvim'
 alias l='ls -la'
 alias tf='terraform'
 alias gam="/Users/andrewmiotke/bin/gamadv-xtd3/gam"
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 # Removes all git branches except master/main
 alias prune='git branch | grep -v "master" | xargs git branch -D'
 
 # PATH
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-
