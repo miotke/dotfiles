@@ -1,12 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="sunaku"
-
 # Function to get current git branch
 function git_branch_name() {
   branch=$(git symbolic-ref HEAD 2>/dev/null | awk -F/ '{print $NF}')
@@ -23,18 +14,6 @@ PROMPT='%F{187}[%*]%f$(git_branch_name) %F{green}%~%f: '
 autoload -U colors && colors
 export CLICOLOR=1
 alias ls='ls --color=auto'
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
 
 # Enable history search
 autoload -U up-line-or-beginning-search
@@ -55,29 +34,26 @@ setopt HIST_FIND_NO_DUPS     # Don't show duplicates in search
 setopt HIST_SAVE_NO_DUPS     # Don't write duplicate entries
 setopt SHARE_HISTORY         # Share history between sessions
 
-# Case-insensitive path completion 
-autoload -Uz compinit && compinit
+# Case-insensitive path completion (cached for speed)
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
 
-# User configuration
-#
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
+# Aliases
 alias python='/opt/homebrew/bin/python3'
 alias pip='pip3'
-alias prune='git branch | grep -v "master" | xargs git branch -D'
 alias vim='nvim'
-# Removes all git branches except the master/main branch
-alias prune="git branch | grep -v "master" | xargs git branch -D"
 alias l='ls -la'
 alias tf='terraform'
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 alias gam="/Users/andrewmiotke/bin/gamadv-xtd3/gam"
+# Removes all git branches except master/main
+alias prune='git branch | grep -v "master" | xargs git branch -D'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# PATH
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
