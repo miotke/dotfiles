@@ -18,6 +18,13 @@ vim.o.clipboard = 'unnamedplus'
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Indentation settings (4 spaces by default)
+vim.o.expandtab = true      -- Use spaces instead of tabs
+vim.o.tabstop = 4           -- Number of spaces tabs count for
+vim.o.shiftwidth = 4        -- Size of an indent
+vim.o.softtabstop = 4       -- Number of spaces that a <Tab> counts for
+vim.o.smartindent = true    -- Insert indents automatically
+
 -- Save undo history
 vim.o.undofile = true
 
