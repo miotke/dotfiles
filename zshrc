@@ -1,9 +1,7 @@
 # Function to get current git branch
 function git_branch_name() {
-  branch=$(git symbolic-ref HEAD 2>/dev/null | awk -F/ '{print $NF}')
-  if [[ -n $branch ]]; then
-    echo " %F{cyan}[$branch]%f"
-  fi
+  local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  [[ -n $branch ]] && echo " %F{cyan}[$branch]%f"
 }
 
 # Configure prompt
@@ -11,7 +9,6 @@ setopt PROMPT_SUBST  # Enable prompt substitution
 PROMPT='%F{187}[%*]%f$(git_branch_name) %F{green}%~%f: '
 
 # Colors directories when using ls
-autoload -U colors && colors
 export CLICOLOR=1
 alias ls='ls --color=auto'
 
