@@ -1,7 +1,6 @@
 return {
   {
     "nvim-tree/nvim-tree.lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
       { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Toggle File Explorer" },
     },
@@ -11,10 +10,9 @@ return {
 
       require("nvim-tree").setup({
         view = { width = 40 },
-        filters = { dotfiles = false },
+        filters = { dotfiles = true },
       })
 
-      require("nvim-web-devicons").setup({})
     end,
   },
 }
