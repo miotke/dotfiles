@@ -1,8 +1,5 @@
-return {
-  'ramojus/mellifluous.nvim',
-  lazy = false,
-  priority = 1000,
-  config = function()
-    vim.o.termguicolors = true
-  end,
-}
+-- Custom colorscheme (no external plugin needed)
+vim.o.termguicolors = true
+vim.cmd.colorscheme('nvtheme')
+
+return {}
