@@ -1,4 +1,5 @@
 import os
+import shlex
 import subprocess
 
 
@@ -24,6 +25,7 @@ def main():
     # Run the rest of the setup functions
     install_homebrew_packages()
     configure_oh_my_zsh()
+    macos_defaults()
     macos_config(HOME)
     create_symlinks(HOME, DOTFILES)
 
@@ -54,7 +56,7 @@ def install_homebrew_packages():
         ("Python3", "brew install python3"),
 
         # Ghostty terminal
-        ("ghostty", "brew install --cask ghostty")
+        ("ghostty", "brew install --cask ghostty"),
 
         # Spotify
         ("Spotify", "brew install --cask spotify"),
@@ -115,14 +117,17 @@ def create_symlinks(HOME: str, DOTFILES: str):
 
 
 def macos_defaults():
-    defaults = [
+    """ Apply macOS `defaults` settings """
+
+    print("\n‼️  Applying macOS defaults\n")
+    DEFAULTS = [
         # Set dock size
-        ("Setting dock size", "defaults write com.apple.dock tilesize -int 19")
+        ("Setting dock size", "defaults write com.apple.dock tilesize -int 19"),
     ]
 
-    for default in defaults: 
-        subprocess.run([default[1]])
-
+    for default in DEFAULTS:
+        print(f"{default[0]}\n")
+        subprocess.run(shlex.split(default[1]))
 
 
 if __name__ == "__main__":
