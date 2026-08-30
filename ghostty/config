@@ -23,3 +23,4 @@ keybind = super+right=new_split:right
 keybind = super+left=new_split:left
 keybind = super+up=new_split:up
 keybind = super+down=new_split:down
+keybind = shift+enter=text:\n
