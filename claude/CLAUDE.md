@@ -3,14 +3,14 @@
 Applies to every project on this machine. Project-level `CLAUDE.md` files
 layer on top of this and win on conflict.
 
-## Writing 
+## Writing
 
-- Answer with short one or two sentences when we are discussing something. If I want a technical explaination I'll ask for it. Code writing differs from discussion.
-- Default to a few sentences. Go longer only for reviews, debugging, or when I ask.
+- Default to a few sentences when we're discussing something. Go longer for
+  reviews, debugging, and code — I'll ask if I want more depth.
 - Lead with the answer. Context after, if it's needed at all.
-- Use less techincal jargon.
-- Use plain text english language.
-- I can be a visual learner so charts and graphs work best.
+- Plain language over jargon. Skip filler.
+- I'm a visual learner: use tables, diagrams, and charts when comparing
+  options or explaining how something flows.
 
 ## Environment
 
