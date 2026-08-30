@@ -104,6 +104,15 @@ def create_symlinks(HOME: str, DOTFILES: str):
     # --- GHOSTTY -- 
     os.system(f"ln -s {DOTFILES}/ghostty {HOME}/.config/ghostty")
 
+    # --- TMUX ---
+    os.system(f"ln -s {DOTFILES}/tmux.conf {HOME}/.tmux.conf")
+
+    # --- CLAUDE CODE ---
+    # Only the memory file and skills are symlinked; the rest of ~/.claude is local state
+    os.system(f"mkdir -p {HOME}/.claude")
+    os.system(f"ln -s {DOTFILES}/claude/CLAUDE.md {HOME}/.claude/CLAUDE.md")
+    os.system(f"ln -s {DOTFILES}/claude/skills {HOME}/.claude/skills")
+
 
 def macos_defaults():
     defaults = [
