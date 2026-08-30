@@ -71,10 +71,18 @@ vim.lsp.config.gopls = {
   },
 }
 
+-- Terraform LSP
+vim.lsp.config.terraformls = {
+  cmd = { 'terraform-ls', 'serve' },
+  filetypes = { 'terraform', 'terraform-vars' },
+  root_markers = { '.terraform', '.git' },
+}
+
 -- Enable all configured LSP servers
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('pylsp')
 vim.lsp.enable('gopls')
+vim.lsp.enable('terraformls')
 
 -- LSP keymaps (applied when LSP attaches to a buffer)
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -105,6 +113,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>ih', function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }), { bufnr = ev.buf })
     end, opts)
+  end,
+})
+
+-- Format Terraform files on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = { '*.tf', '*.tfvars' },
+  callback = function()
+    vim.lsp.buf.format({ async = false })
   end,
 })
 

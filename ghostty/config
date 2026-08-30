@@ -7,10 +7,10 @@ foreground = #cfc6af
 font-size = 14
 
 # Bold font
-font-family = JetBrains Mono
-font-family-bold = JetBrains Mono ExtraBold
-font-thicken = true
-font-thicken-strength = 255
+# font-family = JetBrains Mono
+#font-family-bold = JetBrains Mono ExtraBold
+#font-thicken = true
+#font-thicken-strength = 255
 
 # Turn off ligatures 
 font-feature = -calt

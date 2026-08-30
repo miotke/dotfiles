@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 
 def main():
@@ -102,6 +103,17 @@ def create_symlinks(HOME: str, DOTFILES: str):
 
     # --- GHOSTTY -- 
     os.system(f"ln -s {DOTFILES}/ghostty {HOME}/.config/ghostty")
+
+
+def macos_defaults():
+    defaults = [
+        # Set dock size
+        ("Setting dock size", "defaults write com.apple.dock tilesize -int 19")
+    ]
+
+    for default in defaults: 
+        subprocess.run([default[1]])
+
 
 
 if __name__ == "__main__":
