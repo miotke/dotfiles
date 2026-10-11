@@ -5,7 +5,7 @@ import subprocess
 
 def main():
     HOME = os.environ["HOME"]
-    DOTFILES = os.path.join(HOME, "developer", "dotfiles")
+    DOTFILES = os.path.dirname(os.path.abspath(__file__))
 
     # --- HOMEBREW --- 
     # Check if Homebrew is installed 
@@ -24,9 +24,9 @@ def main():
 
     # Run the rest of the setup functions
     install_homebrew_packages()
-    configure_oh_my_zsh()
-    macos_defaults()
+    # macos_config replaces the dock plist, so defaults must be applied after it
     macos_config(HOME)
+    macos_defaults()
     create_symlinks(HOME, DOTFILES)
 
 
@@ -100,6 +100,8 @@ def create_symlinks(HOME: str, DOTFILES: str):
     # Create symlink for zshrc
     os.system(f"ln -s {DOTFILES}/zshrc {HOME}/.zshrc")
 
+    os.system(f"mkdir -p {HOME}/.config")
+
     # --- NEOVIM ---
     os.system(f"ln -s {DOTFILES}/nvim {HOME}/.config/nvim")
 
@@ -110,10 +112,12 @@ def create_symlinks(HOME: str, DOTFILES: str):
     os.system(f"ln -s {DOTFILES}/tmux.conf {HOME}/.tmux.conf")
 
     # --- CLAUDE CODE ---
-    # Only the memory file and skills are symlinked; the rest of ~/.claude is local state
-    os.system(f"mkdir -p {HOME}/.claude")
+    # Only the memory file and skills are symlinked; the rest of ~/.claude is local state.
+    # Skills are linked individually since ~/.claude/skills may already hold synced skills.
+    os.system(f"mkdir -p {HOME}/.claude/skills")
     os.system(f"ln -s {DOTFILES}/claude/CLAUDE.md {HOME}/.claude/CLAUDE.md")
-    os.system(f"ln -s {DOTFILES}/claude/skills {HOME}/.claude/skills")
+    for skill in os.listdir(f"{DOTFILES}/claude/skills"):
+        os.system(f"ln -s {DOTFILES}/claude/skills/{skill} {HOME}/.claude/skills/{skill}")
 
 
 def macos_defaults():
@@ -128,6 +132,9 @@ def macos_defaults():
     for default in DEFAULTS:
         print(f"{default[0]}\n")
         subprocess.run(shlex.split(default[1]))
+
+    # Restart the Dock so it picks up the new settings
+    os.system("killall Dock")
 
 
 if __name__ == "__main__":
