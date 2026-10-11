@@ -43,6 +43,9 @@ def install_homebrew_packages():
         # iTerm2
         ("iTerm2", "brew install --cask iterm2"),
 
+        # Git (newer than the version bundled with macOS)
+        ("Git", "brew install git"),
+
         # tree
         ("Tree", "brew install tree"),
 
@@ -85,6 +88,11 @@ def macos_config(HOME: str):
     dock_plist_path = "macos_plists/com.apple.dock.plist"
     os.system(f"cp {dock_plist_path} {user_plist_path}")
     os.system("killall Dock")
+
+    # Set git identity
+    os.system('git config --global user.name "Andrew Miotke"')
+    os.system('git config --global user.email "andrew@andrewmiotke.com"')
+    print("Git identity set")
 
     # Set neovim as the default git editor
     os.system("git config --global core.editor nvim")
