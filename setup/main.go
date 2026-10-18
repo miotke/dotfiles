@@ -1,13 +1,13 @@
 package main
 
 import (
+	"errors"
 	"fmt"
+	"io"
+	"net/http"
 	"os"
 	"os/exec"
 	"path/filepath"
-	"errors"
-	"net/http"
-	"io"
 )
 
 func main() { 
@@ -35,6 +35,7 @@ func main() {
 	}
 
 	// install homebrew packages 
+	installHomebrewPackages()
 
 	// setup Mac config (defaults, dock items)
 
@@ -61,23 +62,34 @@ func installHomebrew() {
 
 func installHomebrewPackages() { 
 	type pkg struct { 
-		app     string
-		command string 
+		appName string
+		cask    bool
 	}
 
-	installPackages := []pkg{ 
-		{"1Passworld", "brew install --cask 1Password"},
-		{"iTerm2", "brew install --cask iterm2"}, 
-		{"Spotify", "brew install --cask spotify"},
-		{"Git", "brew install git"},
-		{"Tree", "brew install tree"},
-		{"htp", "brew install htop"},
-		{"Neovim", "brew install neovim"},
+	brewPackages := []pkg{ 
+		{"1password", true},
+		{"iterm2", true}, 
+		{"spotify", true},
+		{"git", false},
+		{"Tree", false},
+		{"htop", false},
+		{"Neovim", false},
 	}
 
-	for i := range len(installPackages) { 
-		fmt.Println("Installing %v", pkg.app)
-		// cmd := exec.Command(pkg.command)
+	for _, p := range brewPackages { 
+		if p.cask { 
+			cmd := exec.Command("brew", "install", "--cask", p.appName)
+			cmd.Stdin = os.Stdin
+			cmd.Stdout = os.Stdout
+			cmd.Stderr = os.Stderr
+			cmd.Run()
+		} else { 
+			cmd := exec.Command("brew", "install", p.appName)
+			cmd.Stdin = os.Stdin
+			cmd.Stdout = os.Stdout
+			cmd.Stderr = os.Stderr
+			cmd.Run()
+		}
 	}
 
 
