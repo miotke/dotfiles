@@ -8,6 +8,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 )
 
 func main() {
@@ -41,14 +42,6 @@ func main() {
 
 	// Create symlinks for home and dotfiles
 
-}
-
-func getHomeDir() string {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		fmt.Println("Failed to get home path")
-	}
-	return home
 }
 
 func getDotfilesPath(home string) string {
@@ -85,6 +78,10 @@ func installHomebrew() {
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	check(err)
+
+	exec.Command("echo", ">>", "~/.zprofile").Run()
+	exec.Command("echo", `'eval "$(/opt/homebrew/bin/brew shellenv zsh)"'`, ">>", "~/.zprofile").Run()
+	exec.Command("eval", "'$(/opt/homebrew/bin/brew shellenv zsh)'").Run()
 }
 
 func installHomebrewPackages() {
@@ -120,15 +117,43 @@ func installHomebrewPackages() {
 	}
 }
 
-// Helper functions
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
+func macOSDefaults(home string, dotfilesPath string) {
+	// Dock configuration
+	userPlistPath := filepath.Join(home, "Library", "Preferences")
+	macOSPlists := "macos_plists"
+	filename := "com.apple.dock.plist"
+
+	dockPlist := filepath.Join(dotfilesPath, macOSPlists, filename)
+	cmd := exec.Command("cp", dockPlist, userPlistPath)
+	output, err := cmd.Output()
+
+	exec.Command("killall", "Dock").Output()
+
+	check(err)
+	fmt.Println(string(output))
+
+	// Set git config
+	setGitIdentity, err := gitConfig()
+	fmt.Println(setGitIdentity)
+	check(err)
 }
 
-func fileExists(path string) bool {
-	// Helper function to check if file exists
-	_, err := os.Stat(path)
-	return !errors.Is(err, os.ErrNotExist)
+func gitConfig() (string, error) {
+
+	exec.Command("git", "config", "--global", "user.name", "Andrew Miotke").Output()
+	exec.Command("git", "config", "--global", "user.email", "andrew@andrewmiotke.com").Output()
+	exec.Command("git", "config", "--global", "core.editor", "nvim").Output()
+
+	gitEditor, err := exec.Command("git", "config", "get", "core.editor").Output()
+	if err != nil {
+		return "", err
+	}
+
+	if strings.TrimSpace(string(gitEditor)) == "nvim" {
+		fmt.Println("git editor == nvim")
+	} else {
+		return "", errors.New("Failed to set git editor to nvim")
+	}
+
+	return "git config set", nil
 }
