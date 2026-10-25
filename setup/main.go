@@ -17,7 +17,7 @@ func main() {
 	// Create `code` path
 	createCodeDirectory(home)
 
-	// Create and define dotfiles path 
+	// Create and define dotfiles path
 	// to clone repo into
 	dotfilesPath := getDotfilesPath(home)
 
@@ -41,6 +41,35 @@ func main() {
 
 	// Create symlinks for home and dotfiles
 
+}
+
+func getHomeDir() string {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		fmt.Println("Failed to get home path")
+	}
+	return home
+}
+
+func getDotfilesPath(home string) string {
+	dotfilesPath := filepath.Join(home, "dotfiles")
+	if err := os.MkdirAll(dotfilesPath, 0755); err != nil {
+		fmt.Print("Failed to create dotfiles directory: ", err)
+	}
+	return dotfilesPath
+}
+
+func cloneDotfilesRepo(dotfilesPath string) {
+	resp, err := http.Get("https://github.com/miotke/dotfiles.git")
+	check(err)
+	defer resp.Body.Close()
+}
+
+func createCodeDirectory(home string) string {
+	path := home + "/code"
+	err := os.MkdirAll(path, 0755)
+	check(err)
+	return path
 }
 
 func installHomebrew() {
@@ -89,35 +118,6 @@ func installHomebrewPackages() {
 			cmd.Run()
 		}
 	}
-}
-
-func getHomeDir() string {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		fmt.Println("Failed to get home path")
-	}
-	return home
-}
-
-func getDotfilesPath(home string) string { 
-	dotfilesPath := filepath.Join(home, "dotfiles")
-	if err := os.MkdirAll(dotfilesPath, 0755); err != nil {
-		fmt.Print("Failed to create dotfiles directory: ", err)
-	}
-	return dotfilesPath
-}
-
-func cloneDotfilesRepo(dotfilesPath string) { 
-	resp, err := http.Get("https://github.com/miotke/dotfiles.git")
-	check(err)
-	defer resp.Body.Close()
-}
-
-func createCodeDirectory(home string) string { 
-	path := home + "/code"
-	err := os.MkdirAll(path, 0755)
-	check(err)
-	return path
 }
 
 // Helper functions
