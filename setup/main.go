@@ -32,13 +32,14 @@ func main() {
 		fmt.Println("Homebrew installed")
 	} else {
 		fmt.Println("Couldn't find homebrew. Install homebrew...")
-		installHomebrew()
+		installHomebrew(home)
 	}
 
 	// install homebrew packages
 	installHomebrewPackages()
 
 	// setup Mac config (defaults, dock items)
+	macOSDefaults(home, dotfilesPath)
 
 	// Create symlinks for home and dotfiles
 
@@ -65,7 +66,7 @@ func createCodeDirectory(home string) string {
 	return path
 }
 
-func installHomebrew() {
+func installHomebrew(home string) {
 	resp, err := http.Get("https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh")
 	check(err)
 	defer resp.Body.Close()
@@ -76,12 +77,23 @@ func installHomebrew() {
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	cmd.Run()
+	err = cmd.Run()
 	check(err)
 
-	exec.Command("echo", ">>", "~/.zprofile").Run()
-	exec.Command("echo", `'eval "$(/opt/homebrew/bin/brew shellenv zsh)"'`, ">>", "~/.zprofile").Run()
-	exec.Command("eval", "'$(/opt/homebrew/bin/brew shellenv zsh)'").Run()
+	zprofilePath := filepath.Join(home, ".zprofile")
+
+	f, err := os.OpenFile(zprofilePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	check(err)
+	defer f.Close()
+
+	_, err = f.Write([]byte(`eval "$(/opt/homebrew/bin/brew shellenv zsh)"` + "\n"))
+	if err != nil {
+		fmt.Println("Failed to write to file")
+	}
+
+	path := os.Getenv("PATH")
+	os.Setenv("HOMEBREW_PREFIX", "/opt/homebrew")
+	os.Setenv("PATH", "/opt/homebrew/bin:/opt/homebrew/sbin:"+path)
 }
 
 func installHomebrewPackages() {
@@ -106,13 +118,15 @@ func installHomebrewPackages() {
 			cmd.Stdin = os.Stdin
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
-			cmd.Run()
+			err := cmd.Run()
+			check(err)
 		} else {
 			cmd := exec.Command("brew", "install", p.appName)
 			cmd.Stdin = os.Stdin
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
-			cmd.Run()
+			err := cmd.Run()
+			check(err)
 		}
 	}
 }
@@ -136,6 +150,9 @@ func macOSDefaults(home string, dotfilesPath string) {
 	setGitIdentity, err := gitConfig()
 	fmt.Println(setGitIdentity)
 	check(err)
+
+	// TODO: Install gopls for nvim
+	// go install golang.org/x/tools/gopls@latest
 }
 
 func gitConfig() (string, error) {
@@ -152,7 +169,7 @@ func gitConfig() (string, error) {
 	if strings.TrimSpace(string(gitEditor)) == "nvim" {
 		fmt.Println("git editor == nvim")
 	} else {
-		return "", errors.New("Failed to set git editor to nvim")
+		return "", errors.New("failed to set git editor to nvim")
 	}
 
 	return "git config set", nil
