@@ -55,3 +55,4 @@ alias prune='git branch | grep -v "master" | xargs git branch -D'
 # PATH
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
