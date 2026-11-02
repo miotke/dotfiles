@@ -42,6 +42,7 @@ func main() {
 	macOSDefaults(home, dotfilesPath)
 
 	// Create symlinks for home and dotfiles
+	createSymlinks(home, dotfilesPath)
 
 }
 
@@ -54,9 +55,11 @@ func getDotfilesPath(home string) string {
 }
 
 func cloneDotfilesRepo(dotfilesPath string) {
-	resp, err := http.Get("https://github.com/miotke/dotfiles.git")
+	repo := "https://github.com/miotke/dotfiles.git"
+	cmd := exec.Command("git", "clone", repo, dotfilesPath)
+	cmd.Stdout = os.Stdout
+	err := cmd.Run()
 	check(err)
-	defer resp.Body.Close()
 }
 
 func createCodeDirectory(home string) string {
@@ -94,6 +97,7 @@ func installHomebrew(home string) {
 	path := os.Getenv("PATH")
 	os.Setenv("HOMEBREW_PREFIX", "/opt/homebrew")
 	os.Setenv("PATH", "/opt/homebrew/bin:/opt/homebrew/sbin:"+path)
+	fmt.Println("PATH setup correctly for brew")
 }
 
 func installHomebrewPackages() {
@@ -109,6 +113,8 @@ func installHomebrewPackages() {
 		{"git", false},
 		{"Tree", false},
 		{"htop", false},
+		{"go", false},
+		{"git", false},
 		{"Neovim", false},
 	}
 
@@ -153,6 +159,9 @@ func macOSDefaults(home string, dotfilesPath string) {
 
 	// TODO: Install gopls for nvim
 	// go install golang.org/x/tools/gopls@latest
+	cmd = exec.Command("go", "install", "golang.org/x/tools/gopls@latest")
+	output, err = cmd.Output()
+	cmd.Run()
 }
 
 func gitConfig() (string, error) {
@@ -173,4 +182,66 @@ func gitConfig() (string, error) {
 	}
 
 	return "git config set", nil
+}
+
+func createSymlinks(home string, dotfilesPath string) {
+	type symlink struct {
+		source string
+		target string
+	}
+
+	symlinks := []symlink{
+		{"zshrc", ".zshrc"},
+		{"nvim", "nvim"},
+		{"tmux.conf", ".tmux.conf"},
+	}
+
+	// Check if the zshrc file exists already
+	zshrcFileState := checkForExistingZshrc(home)
+	fmt.Println(zshrcFileState)
+
+	// Check for ~/.config and if it doesn't exists create it
+	err := os.MkdirAll(filepath.Join(home, ".config"), 0755)
+	if err != nil {
+		fmt.Println(err)
+	}
+	configDir, err := os.Stat(home + ".config")
+	if err != nil {
+		fmt.Println("Can't find ~/.config")
+	}
+
+	configDirPath := filepath.Join(home, ".config")
+
+	if !configDir.IsDir() {
+		exec.Command("mkdir", configDirPath)
+	}
+
+	for _, symlink := range symlinks {
+		source := filepath.Join(dotfilesPath, symlink.source)
+		target := filepath.Join(home, symlink.target)
+
+		if symlink.source == "nvim" {
+			target := configDirPath + symlink.target
+			exec.Command("ln", "-s", source, target)
+		}
+
+		exec.Command("ln", "-s", source, target).Run()
+		fmt.Printf("Symlink created for %s", symlink.source)
+	}
+}
+
+func checkForExistingZshrc(home string) string {
+	zshrc := filepath.Join(home, ".zshrc")
+	checkForZshrc := fileExists(zshrc)
+	result := ""
+
+	if checkForZshrc {
+		cmd := exec.Command("rm", zshrc)
+		cmd.Run()
+		result = "Original zshrc removed successfully"
+	} else {
+		result = "Unable to remove original zshrc"
+	}
+
+	return result
 }
