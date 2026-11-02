@@ -4,3 +4,7 @@ nvim/autoload
 nvim/lazy-lock.json
 
 
+claude/skills/synced/
+claude/skills/.trash/
+
+/setup/setup
